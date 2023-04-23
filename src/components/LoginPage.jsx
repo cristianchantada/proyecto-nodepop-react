@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from "react";
+import { userLogin } from "../api/service";
 
 function LoginPage(){
 
@@ -8,16 +9,20 @@ function LoginPage(){
     password: ""
   })
 
-/*   useEffect(() => {
-
-    };
-  ) */
+  useEffect(() => {
+      console.log(credentials);
+      userLogin(credentials).then();
+    }
+  )
 
   const handleSubmit = (event) => {
-    console.log(event.target.username.value);
-    setLogin(true);
-    setCredentials(
-
+    event.preventDefault();
+    console.log(event);
+/*     setLogin(true); */
+    setCredentials({
+        username: event.target.value[0],
+        password: event.target.value[1]
+      }
     )
   }
 
