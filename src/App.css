@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+.container.login {
+  border: 2px solid red;
+}

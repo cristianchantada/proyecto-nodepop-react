@@ -1,31 +1,33 @@
-import { client as axiosClient } from "./client";
+import { client } from "./client";
 
-export function userLogin(client) {
-    const token = client.post("/auth/login");
+export async function userLogin(credentials) {
+    console.log(credentials);
+    const token = await client.post("/auth/login", credentials);
+    console.log(token);
     localStorage.setItem('auth', token);
 }
 
-export function userRegister(client) {
+export function userRegister() {
     const response = client.post("/auth/signup");
     return response;
 }
 
-export function getAdvs(client) {
+export function getAdvs() {
     const response = client.get("/api/v1/adverts");
     return response;
 }
 
-export function postAdv(client) {
+export function postAdv() {
     const response = client.post("/api/v1/adverts");
     return response;
 }
 
-export function getAdv(client, id) {
+export function getAdv(id) {
     const response = client.get(`/api/v1/adverts/${id}`);
     return response;
 }
 
-export function deleteAdv(client, id) {
+export function deleteAdv(id) {
     const response = client.delete(`/api/v1/adverts/${id}`);
     return response;
 }

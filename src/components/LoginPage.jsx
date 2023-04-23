@@ -1,33 +1,27 @@
-import React, { useEffect, useState} from "react";
+import React, { useState} from "react";
 import { userLogin } from "../api/service";
 
 function LoginPage(){
 
   const[login, setLogin] = useState(false);
   const[credentials, setCredentials] = useState({
-    username: "",
+    email: "",
     password: ""
-  })
-
-  useEffect(() => {
-      console.log(credentials);
-      userLogin(credentials).then();
-    }
-  )
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
-/*     setLogin(true); */
     setCredentials({
-        username: event.target.value[0],
-        password: event.target.value[1]
+        email: event.target[0].value,
+        password: event.target[1].value
       }
     )
+
+    userLogin(credentials);
   }
 
   return (
-    <div className="container">
+    <div className="container login">
       <form onSubmit={handleSubmit}>
         <input name="username" type="text" placeholder="username" />
         <input name="password" type="password" placeholder="password" />
