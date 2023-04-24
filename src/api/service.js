@@ -1,38 +1,38 @@
-import { client } from "./client";
+import { client, setRequestHeaders } from "./client";
 
-function setRequestHeaders (token) {
-    client.defaults.headers.common['Authorization'] = `Bearer ${token}`
+export function getAdverts(){
+  return client.get("/v1/adverts");
 }
 
 export async function userLogin(credentials) {
-    const response = await client.post("/auth/login", credentials);
-    console.log(response.data);
-    setRequestHeaders(response.data.accessToken);
-    localStorage.setItem('auth', response.data.accessToken);
+  const response = await client.post("/auth/login", credentials);
+  setRequestHeaders(response.accessToken);
+  localStorage.setItem('auth', response.accessToken);
 }
+
 
 export function userRegister() {
-    const response = client.post("/auth/signup");
-    return response;
+  const response = client.post("/auth/signup");
+  return response;
 }
 
-export function getAdvs() {
-    /* localStorage.getItem('auth'); */
-    const response = client.get("/v1/adverts");
-    return response;
+export async function getAdvs() {
+  const token = localStorage.getItem('auth');
+  const response = await client.get("/v1/adverts");
+  return response;
 }
 
 export function postAdv() {
-    const response = client.post("/v1/adverts");
-    return response;
+  const response = client.post("/v1/adverts");
+  return response;
 }
 
 export function getAdv(id) {
-    const response = client.get(`/v1/adverts/${id}`);
-    return response;
+  const response = client.get(`/v1/adverts/${id}`);
+  return response;
 }
 
 export function deleteAdv(id) {
-    const response = client.delete(`/api/v1/adverts/${id}`);
-    return response;
+  const response = client.delete(`/api/v1/adverts/${id}`);
+  return response;
 }

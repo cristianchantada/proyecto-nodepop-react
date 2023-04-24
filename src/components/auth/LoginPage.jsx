@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { userLogin } from "../../api/service";
 
-function LoginPage(){
+function LoginPage({setIsLogged}){
 
   const[credentials, setCredentials] = useState({
     email: "",
@@ -17,6 +17,9 @@ function LoginPage(){
     )
 
     userLogin(credentials);
+
+    setIsLogged(true);
+
   }
 
   return (
