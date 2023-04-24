@@ -5,3 +5,7 @@
 .container.login {
   border: 2px solid red;
 }
+
+.container.AdvertsPage {
+  border: 2px solid rgb(13, 145, 9);
+}

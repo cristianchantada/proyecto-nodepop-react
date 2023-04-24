@@ -1,9 +1,8 @@
-import React, { useState} from "react";
-import { userLogin } from "../api/service";
+import React, { useState } from "react";
+import { userLogin } from "../../api/service";
 
 function LoginPage(){
 
-  const[login, setLogin] = useState(false);
   const[credentials, setCredentials] = useState({
     email: "",
     password: ""

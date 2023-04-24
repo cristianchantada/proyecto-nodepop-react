@@ -1,10 +1,14 @@
 import { client } from "./client";
 
+function setRequestHeaders (token) {
+    client.defaults.headers.common['Authorization'] = `Bearer ${token}`
+}
+
 export async function userLogin(credentials) {
-    console.log(credentials);
-    const token = await client.post("/auth/login", credentials);
-    console.log(token);
-    localStorage.setItem('auth', token);
+    const response = await client.post("/auth/login", credentials);
+    console.log(response.data);
+    setRequestHeaders(response.data.accessToken);
+    localStorage.setItem('auth', response.data.accessToken);
 }
 
 export function userRegister() {
@@ -13,17 +17,18 @@ export function userRegister() {
 }
 
 export function getAdvs() {
-    const response = client.get("/api/v1/adverts");
+    /* localStorage.getItem('auth'); */
+    const response = client.get("/v1/adverts");
     return response;
 }
 
 export function postAdv() {
-    const response = client.post("/api/v1/adverts");
+    const response = client.post("/v1/adverts");
     return response;
 }
 
 export function getAdv(id) {
-    const response = client.get(`/api/v1/adverts/${id}`);
+    const response = client.get(`/v1/adverts/${id}`);
     return response;
 }
 
