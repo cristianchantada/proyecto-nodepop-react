@@ -3,36 +3,29 @@ import { userLogin } from "../../api/service";
 
 function LoginPage({handleLogin}){
 
-  const[credentials, setCredentials] = useState({
+/*   const[credentials, setCredentials] = useState({
     email: "",
     password: ""
-  });
+  }); */
 
   const handleSubmit = event => {
     event.preventDefault();
-    
-    console.log(credentials);
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
 
+/* 
     setCredentials({...credentials,
-      email: event.target[0].value,
-      password: event.target[1].value
-    });
-
-/*     setCredentials({
       email: event.target[0].value,
       password: event.target[1].value
     }); */
 
-    console.log(credentials);
-    
-    const token = userLogin(credentials);
-    
-    if(token){
-      handleLogin();
+    const credentials = {
+      email: event.target[0].value,
+      password: event.target[1].value
     }
-    
+
+    userLogin(credentials);
+
+    handleLogin();
+
   }
 
   return (

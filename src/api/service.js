@@ -6,17 +6,9 @@ export function getAdverts(){
 
 export async function userLogin(credentials) {
   const response = await client.post("/auth/login", credentials);
-  client.defaults.headers.common['Authorization'] = `Bearer ${response.accessToken}`;
+  debugger;
+  setRequestHeaders(response.accessToken);
   localStorage.setItem('auth', response.accessToken);
-/*   setRequestHeaders(response.accessToken); */
-
-  return response.accessToken
-}
-
-
-export function userRegister() {
-  const response = client.post("/auth/signup");
-  return response;
 }
 
 export async function getAdvs() {
