@@ -1,41 +1,37 @@
-import React, { useState } from "react";
 import { userLogin } from "../../api/service";
+import Layout from "../Layout";
 
-function LoginPage({handleLogin}){
-
-/*   const[credentials, setCredentials] = useState({
-    email: "",
-    password: ""
-  }); */
+function LoginPage({handleLogin, isLogged}){
 
   const handleSubmit = event => {
     event.preventDefault();
 
-/* 
-    setCredentials({...credentials,
-      email: event.target[0].value,
-      password: event.target[1].value
-    }); */
-
     const credentials = {
-      email: event.target[0].value,
-      password: event.target[1].value
+      email: event.target.username.value,
+      password: event.target.password.value
     }
 
-    userLogin(credentials).then(()=>{
+    console.log(event.target.checkbox.checked)
+
+    const checked = event.target.checkbox.checked 
+
+    userLogin(credentials, checked).then(()=>{
       handleLogin();
     });
 
   }
 
   return (
-    <div className="container login">
-      <form onSubmit={handleSubmit}>
-        <input name="username" type="text" placeholder="username" />
-        <input name="password" type="password" placeholder="password" />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Layout>
+      <div className="container login">
+        <form id="loginForm" onSubmit={handleSubmit}>
+          <input name="username" type="text" placeholder="username" />
+          <input name="password" type="password" placeholder="password" />
+          <label htmlFor=""><input name="checkbox" type="checkbox"/>¿Desea guardar la contraseña?</label>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </Layout>
   );
 }
 

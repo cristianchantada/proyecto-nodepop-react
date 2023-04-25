@@ -4,10 +4,13 @@ export function getAdverts(){
   return client.get("/v1/adverts");
 }
 
-export async function userLogin(credentials) {
+export async function userLogin(credentials, checked) {
   const response = await client.post("/auth/login", credentials);
   setRequestHeaders(response.accessToken);
-  localStorage.setItem('auth', response.accessToken);
+  
+  if(checked){
+    localStorage.setItem('auth', response.accessToken);
+  }
 }
 
 export async function getAdvs() {

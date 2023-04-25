@@ -22,9 +22,10 @@ function App({isToken}) {
       className="App">
       {
         isLogged ?
-          <AdvertsPage handleLogout={handleLogout} /> :
-          <LoginPage handleLogin={handleLogin} />
+          <AdvertsPage isLogged={isLogged} handleLogout={handleLogout} /> :
+          <LoginPage isLogged={isLogged} handleLogin={handleLogin} />
       } 
+      
     </div>
   );
 }
