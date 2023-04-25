@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
 
-function AdvertsPage() {
+function AdvertsPage({handleLogout}) {
 
   const [adverts, setAdverts] = useState([]);
 
@@ -12,6 +12,7 @@ function AdvertsPage() {
 
   return (
     <div className="container AdvertsPage">
+      <button onClick={handleLogout}>Logout</button>
       <h2>Anuncios</h2>
       <ul>
         {adverts.map(advert => ( 

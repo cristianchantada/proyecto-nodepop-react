@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
+
+const token = localStorage.getItem('auth');
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <App isToken={token ? true : false }  />
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,25 +1,38 @@
 import React, { useState } from "react";
 import { userLogin } from "../../api/service";
 
-function LoginPage({setIsLogged}){
+function LoginPage({handleLogin}){
 
   const[credentials, setCredentials] = useState({
     email: "",
     password: ""
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    setCredentials({
-        email: event.target[0].value,
-        password: event.target[1].value
-      }
-    )
+    
+    console.log(credentials);
+    console.log(event.target[0].value);
+    console.log(event.target[1].value);
 
-    userLogin(credentials);
+    setCredentials({...credentials,
+      email: event.target[0].value,
+      password: event.target[1].value
+    });
 
-    setIsLogged(true);
+/*     setCredentials({
+      email: event.target[0].value,
+      password: event.target[1].value
+    }); */
 
+    console.log(credentials);
+    
+    const token = userLogin(credentials);
+    
+    if(token){
+      handleLogin();
+    }
+    
   }
 
   return (

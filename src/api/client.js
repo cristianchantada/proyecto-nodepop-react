@@ -8,6 +8,12 @@ export const client = axios.create({
 client.interceptors.response.use(response => response.data);
 
 export function setRequestHeaders(token) {
-  console.log(token)
+  console.log(token);
   client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  localStorage.setItem('auth', token);
+}
+
+export function removeRequestHeaders(){
+  delete client.defaults.headers.common['Authorization'];
+  localStorage.removeItem('auth');
 }
