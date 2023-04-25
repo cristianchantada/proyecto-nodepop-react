@@ -22,9 +22,9 @@ function LoginPage({handleLogin}){
       password: event.target[1].value
     }
 
-    userLogin(credentials);
-
-    handleLogin();
+    userLogin(credentials).then(()=>{
+      handleLogin();
+    });
 
   }
 

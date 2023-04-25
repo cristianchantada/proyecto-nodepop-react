@@ -16,7 +16,10 @@ function AdvertsPage({handleLogout}) {
       <h2>Anuncios</h2>
       <ul>
         {adverts.map(advert => ( 
-          <li key={advert.id}>{advert.a}</li>
+          <li key={advert.id}>
+            <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
+            <p>{advert.price}</p>
+          </li>
         ))}
       </ul>
     </div>

@@ -6,7 +6,6 @@ export function getAdverts(){
 
 export async function userLogin(credentials) {
   const response = await client.post("/auth/login", credentials);
-  debugger;
   setRequestHeaders(response.accessToken);
   localStorage.setItem('auth', response.accessToken);
 }
