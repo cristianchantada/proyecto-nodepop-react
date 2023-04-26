@@ -18,8 +18,13 @@ export async function getAdvs() {
   return response;
 }
 
-export function postAdv() {
-  const response = client.post("/v1/adverts");
+export async function postAdv(advData) {
+  
+  const response = await client.post("/v1/adverts", advData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
   return response;
 }
 

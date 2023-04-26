@@ -5,6 +5,7 @@ export const client = axios.create({
   }
 );
   
+client.defaults.headers.post['Content-Type'] = 'multipart/form-data'
 client.interceptors.response.use(response => response.data);
 
 export const setRequestHeaders = token => 

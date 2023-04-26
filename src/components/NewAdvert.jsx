@@ -1,48 +1,36 @@
 import { useNavigate } from "react-router-dom";
 import Layout from "./common/Layout";
-import { useState } from "react";
 import { postAdv } from "../api/service";
 
 function NewAdvert({handleLogout}) {
-
-  const [action, setAction] = useState(false)
 
   const navigate = useNavigate();
 
   const handleNewAdvertButton = () => {
     navigate('/adverts/new');
-    setAction(false);
+
   }
 
   const handleSubmit = event => {
     event.preventDefault();
 
     let sale = event.target[1].value;
-    
-    if (sale === 'comprar'){
-      sale = true;
-    } else {
-      sale = false;
+    sale = sale === 'vender' ? true : false;
+
+    let tagsArray = [];
+    for(let i=2; i<6; i++){
+      if(event.target[i].checked === true){
+        tagsArray.push(event.target[i].name);
+      }
     }
-    
-    // (event.target.sale.value === 'comprar' ? event.target.sale.value = true : event.target.sale.value = false);
-    
-    const tagsChecked = {
-      lifestyle: event.target[2].checked,
-      work: event.target[3].checked,
-      motor: event.target[4].checked,
-      mobile: event.target[5].checked,
-    }
-    
-    console.log(event);
-    console.log(tagsChecked);
+
 
     const advData = {
       name: event.target.name.value,
       sale: sale,
-      price: event.target.prize.value,
-      tags: event.target.tags.value,
-      photo: event.target.photo.value,
+      price: parseFloat(event.target.prize.value),
+      tags: [tagsArray],
+      photo: null //event.target.photo.value
     }
 
     console.log(advData);
@@ -55,7 +43,7 @@ function NewAdvert({handleLogout}) {
     <Layout handleNewAdvertButton={handleNewAdvertButton} handleLogout={handleLogout}>
       <div className="container newAdvertContainer">
         <h2>Crear nuevo anuncio</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} /* enctype="multipart/form-data" */>
           <label htmlFor="name">Nombre del producto</label>
             <input type="text" name='name' id="name" required />
           <label htmlFor="sale">Seleccione compra o venta</label>
