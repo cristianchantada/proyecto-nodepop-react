@@ -24,13 +24,14 @@ function NewAdvert({handleLogout}) {
       }
     }
 
+    console.log(event);
 
     const advData = {
       name: event.target.name.value,
       sale: sale,
       price: parseFloat(event.target.prize.value),
       tags: [tagsArray],
-      photo: null //event.target.photo.value
+      photo: event.target.photo.files[0]
     }
 
     console.log(advData);
