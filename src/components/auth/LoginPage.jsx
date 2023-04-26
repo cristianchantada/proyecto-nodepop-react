@@ -1,7 +1,10 @@
 import { userLogin } from "../../api/service";
-import Layout from "../Layout";
+import Layout from "../common/Layout";
+import { useNavigate } from "react-router-dom";
 
-function LoginPage({handleLogin, isLogged}){
+function LoginPage({handleLogin}){
+
+  const navigate = useNavigate();
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -11,12 +14,11 @@ function LoginPage({handleLogin, isLogged}){
       password: event.target.password.value
     }
 
-    console.log(event.target.checkbox.checked)
-
     const checked = event.target.checkbox.checked 
 
     userLogin(credentials, checked).then(()=>{
       handleLogin();
+      navigate('/');
     });
 
   }
