@@ -1,6 +1,6 @@
 import Button from "./button";
 
-function Layout ({isLogged, children, handleLogin, handleLogout}) {
+function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
 
   return (
     <div className="container layoutContainer">
@@ -9,7 +9,7 @@ function Layout ({isLogged, children, handleLogin, handleLogout}) {
         <nav>
           {isLogged ?
             <>
-              <Button /* handleButtonClick={} */title={"Crear anuncio"} />
+              <Button handleButtonClick={handleNewAdvertButton} title={"Crear anuncio"} />
               <Button handleButtonClick={handleLogout} title={"Logout"} />
             </> : null
           }
