@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import AuthComponent from './components/auth/AuthComponent';
-import AdvertDetail from './components/AdvertDetail';
+import AdvertDetail from './components/AdvertPage';
 import { removeRequestHeaders } from './api/client';
 import LoginPage from './components/auth/LoginPage';
 import AdvertsPage from './components/AdvertsPage';

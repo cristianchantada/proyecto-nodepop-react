@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
 import Layout from "./common/Layout";
 import { Link } from "react-router-dom";
-import AdvertDetail from "./AdvertDetail"
+import AdvertDetail from "./AdvertPage"
 
 function AdvertsPage({handleLogout, isLogged}) {
 

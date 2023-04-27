@@ -14,7 +14,7 @@ function LoginPage({handleLogin}){
       password: event.target.password.value
     }
 
-    const checked = event.target.checkbox.checked 
+    const checked = event.target.checkbox.checked;
 
     userLogin(credentials, checked).then(()=>{
       handleLogin();
