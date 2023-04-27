@@ -23,6 +23,11 @@ function AdvertsPage({handleLogout, isLogged}) {
               <Link to={`/adverts/${advert.id}`}> 
                 <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
                 <p>{advert.price}</p>
+                {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> : null }
+                <ul>
+                  {advert.tags.map(tag => 
+                    <li key={advert.id}>{tag}</li>)}
+                </ul>
               </Link> 
             </li>
           ))}

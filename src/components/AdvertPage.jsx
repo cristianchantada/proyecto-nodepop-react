@@ -12,8 +12,6 @@ function AdvertDetail(){
   const navigate = useNavigate();
   const {id} = useParams();
 
-  console.log('en advertDatail', id);
-
   const handleDelete = () => {
     deleteAdv(id).then(alert('El anuncio ha sido borrado correctamente'));
     navigate('/');
@@ -23,6 +21,7 @@ function AdvertDetail(){
 
     getAdv(id).then(advert => {
       setAdvert(advert)
+      console.log(advert.tags);
     });
 
   }, [id])
@@ -31,6 +30,12 @@ function AdvertDetail(){
     <div className='container detailContainer'>
       <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
       <p>{advert.price}</p>
+      {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> : null }
+      <ul>
+        {advert.tags ? advert.tags.map(tag => 
+          <li key={advert.id}>{tag}</li>) : null}
+      </ul>
+      <br />
       <Button handleButtonClick={handleDelete} title={'Borrar anuncio'}/>
     </div>
   );

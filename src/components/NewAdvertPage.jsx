@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "./common/Layout";
 import { postAdv } from "../api/service";
 
-function NewAdvert({handleLogout}) {
+function NewAdvertPage({handleLogout}) {
 
   const navigate = useNavigate();
 
@@ -34,6 +34,7 @@ function NewAdvert({handleLogout}) {
       photo: event.target.photo.files[0]
     }
 
+    console.log('HOla')
     console.log(advData);
 
     postAdv(advData).then(response => console.log(response));
@@ -69,4 +70,4 @@ function NewAdvert({handleLogout}) {
   );
 } 
 
-export default NewAdvert;
+export default NewAdvertPage;

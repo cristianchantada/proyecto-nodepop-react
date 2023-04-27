@@ -4,7 +4,7 @@ import AdvertDetail from './components/AdvertPage';
 import { removeRequestHeaders } from './api/client';
 import LoginPage from './components/auth/LoginPage';
 import AdvertsPage from './components/AdvertsPage';
-import NewAdvert from './components/NewAdvert';
+import NewAdvertPage from './components/NewAdvertPage';
 import { useState } from 'react';
 import './App.css';
 
@@ -49,7 +49,7 @@ function App({isToken}) {
               path='/adverts/new'
               element={
                 <AuthComponent isLogged={isLogged}>
-                  <NewAdvert handleLogout={handleLogout}/>
+                  <NewAdvertPage handleLogout={handleLogout}/>
                 </AuthComponent>
               } 
             />
