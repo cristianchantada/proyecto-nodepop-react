@@ -33,7 +33,8 @@ export async function getAdv(id) {
   return response;
 }
 
-export function deleteAdv(id) {
-  const response = client.delete(`/api/v1/adverts/${id}`);
+export async function deleteAdv(id) {
+  console.log('en serviceDelete', {id});
+  const response = await client.delete(`/v1/adverts/${id}`);
   return response;
 }

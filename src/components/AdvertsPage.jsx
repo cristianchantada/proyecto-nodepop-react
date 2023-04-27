@@ -23,7 +23,6 @@ function AdvertsPage({handleLogout, isLogged}) {
               <Link to={`/adverts/${advert.id}`}> 
                 <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
                 <p>{advert.price}</p>
-                <AdvertDetail {...advert} />
               </Link> 
             </li>
           ))}
