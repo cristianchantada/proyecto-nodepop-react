@@ -30,7 +30,8 @@ function AdvertDetail(){
     <div className='container detailContainer'>
       <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
       <p>{advert.price}</p>
-      {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> : null }
+      {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> :
+        <img src='../../public/placeholder.png' alt="Anuncio sin fotografía"/>}
       <ul>
         {advert.tags ? advert.tags.map(tag => 
           <li key={advert.id}>{tag}</li>) : null}
