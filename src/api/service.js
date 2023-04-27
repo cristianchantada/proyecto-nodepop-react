@@ -28,8 +28,8 @@ export async function postAdv(advData) {
   return response;
 }
 
-export function getAdv(id) {
-  const response = client.get(`/v1/adverts/${id}`);
+export async function getAdv(id) {
+  const response = await client.get(`/v1/adverts/${id}`);
   return response;
 }
 

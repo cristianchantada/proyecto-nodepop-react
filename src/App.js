@@ -1,11 +1,12 @@
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import AuthComponent from './components/auth/AuthComponent';
+import AdvertDetail from './components/AdvertDetail';
 import { removeRequestHeaders } from './api/client';
 import LoginPage from './components/auth/LoginPage';
 import AdvertsPage from './components/AdvertsPage';
+import NewAdvert from './components/NewAdvert';
 import { useState } from 'react';
 import './App.css';
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
-import AuthComponent from './components/auth/AuthComponent';
-import NewAdvert from './components/NewAdvert';
 
 
 function App({isToken}) {
@@ -33,6 +34,14 @@ function App({isToken}) {
               element={
                 <AuthComponent isLogged={isLogged}>
                   <AdvertsPage isLogged={isLogged} handleLogout={handleLogout} />
+                </AuthComponent>
+              } 
+            />
+            <Route 
+              path='/adverts/:id'
+              element={
+                <AuthComponent isLogged={isLogged}>
+                  <AdvertDetail /* isLogged={isLogged} handleLogout={handleLogout} */ />
                 </AuthComponent>
               } 
             />
