@@ -14,6 +14,8 @@ function NewAdvertPage({handleLogout}) {
   const handleSubmit = event => {
     event.preventDefault();
 
+    console.log(event);
+
     let sale = event.target[1].value;
     sale = sale === 'vender' ? true : false;
 

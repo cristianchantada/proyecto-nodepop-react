@@ -4,7 +4,6 @@
 
 .advertsList {
     display: grid;
-    grid-auto-rows: ;
     gap: 20px;
     align-items: center;
     justify-content: center;

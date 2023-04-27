@@ -11,8 +11,6 @@ function AdvertsPage({handleLogout, isLogged}) {
   const [adverts, setAdverts] = useState([]);
   const navigate = useNavigate();
 
-  console.log(adverts);
-
   const handleNewAdvertButton = () => {
     navigate('/adverts/new');
   }
@@ -20,19 +18,36 @@ function AdvertsPage({handleLogout, isLogged}) {
   const handleFilterSubmit = (event) => {
     event.preventDefault();
 
-    console.log(event);
-    console.log(event.target.minPrize.value);
-    console.log(event.target.maxPrize.value);
-    console.log(event.target[2].checked);
-    console.log(event.target[3].checked);
-    console.log(event.target[4].checked);
+    let minPrize = parseFloat(event.target.minPrize.value);
+    let maxPrize = parseFloat(event.target.maxPrize.value);
 
-    const minPrize = event.target.minPrize.value;
-    const maxPrize = event.target.maxPrize.value;
+    
+
+    if(isNaN(minPrize)){
+      minPrize = 0;
+    }
+
+    if(isNaN(maxPrize)){
+      maxPrize = Infinity;
+    }
 
     const radioBuy = event.target[2].checked; 
     const radioSell = event.target[3].checked; 
     const radioBuySell = event.target[4].checked; 
+    let operation = null;
+
+    if(radioBuy){
+      operation = false
+    } else if(radioSell) {
+      operation = true
+    }
+
+    let filterAdverts = adverts.filter(advert => advert.price >= minPrize && advert.price <= maxPrize);
+    console.log(filterAdverts);
+    filterAdverts = filterAdverts.filter(advert => advert.sale === operation );
+    console.log(filterAdverts);
+    
+
     
   }
 
