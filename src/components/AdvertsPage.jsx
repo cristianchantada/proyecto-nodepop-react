@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
 import Layout from "./common/Layout";
-import { Link } from "react-router-dom";
-import AdvertDetail from "./AdvertPage"
+import { Link, useNavigate } from "react-router-dom";
 
 function AdvertsPage({handleLogout, isLogged}) {
 
   const [adverts, setAdverts] = useState([]);
+  const navigate = useNavigate();
+
+  const handleNewAdvertButton = () => {
+    navigate('/adverts/new');
+  }
 
   useEffect(()=> {
 
@@ -14,7 +18,7 @@ function AdvertsPage({handleLogout, isLogged}) {
   }, []);
 
   return (
-    <Layout isLogged={isLogged} handleLogout={handleLogout}>
+    <Layout isLogged={isLogged} handleLogout={handleLogout} handleNewAdvertButton={handleNewAdvertButton}>
       <div className="container AdvertsPage">
         <h2>Anuncios</h2>
         <ul>
