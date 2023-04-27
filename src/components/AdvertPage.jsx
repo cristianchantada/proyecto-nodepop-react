@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import Button from "./common/button";
 import { deleteAdv } from "../api/service";
 import { useNavigate } from "react-router-dom";
+import placeholder from '../assets/img/placeholder.png'
+
 
 
 function AdvertDetail(){
@@ -21,7 +23,6 @@ function AdvertDetail(){
 
     getAdv(id).then(advert => {
       setAdvert(advert)
-      console.log(advert.tags);
     });
 
   }, [id])
@@ -31,7 +32,7 @@ function AdvertDetail(){
       <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
       <p>{advert.price}</p>
       {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> :
-        <img src='../../public/placeholder.png' alt="Anuncio sin fotografía"/>}
+        <img src={placeholder} alt="Anuncio sin fotografía"/>}
       <ul>
         {advert.tags ? advert.tags.map(tag => 
           <li key={advert.id}>{tag}</li>) : null}

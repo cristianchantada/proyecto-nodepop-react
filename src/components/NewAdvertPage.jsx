@@ -34,10 +34,8 @@ function NewAdvertPage({handleLogout}) {
       photo: event.target.photo.files[0]
     }
 
-    console.log('HOla')
-    console.log(advData);
-
-    postAdv(advData).then(response => console.log(response));
+    postAdv(advData).then(response => navigate(`/adverts/${response.id}`));
+    
 
   }
 
