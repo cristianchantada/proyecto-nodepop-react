@@ -15,6 +15,10 @@ function App({isToken}) {
 
   const [isLogged, setIsLogged] = useState(isToken);
 
+  const handleNewAdvertButton = (event) => {
+    navigate('/adverts/new');
+  }
+
   const handleLogin = () => {
     setIsLogged(true);
   }
@@ -33,7 +37,7 @@ function App({isToken}) {
               path='/adverts'
               element={
                 <AuthComponent isLogged={isLogged}>
-                  <AdvertsPage isLogged={isLogged} handleLogout={handleLogout} />
+                  <AdvertsPage isLogged={isLogged} handleLogout={handleLogout} handleNewAdvertButton={handleNewAdvertButton} />
                 </AuthComponent>
               } 
             />
@@ -41,7 +45,7 @@ function App({isToken}) {
               path='/adverts/:id'
               element={
                 <AuthComponent isLogged={isLogged}>
-                  <AdvertDetail /* isLogged={isLogged} handleLogout={handleLogout} */ />
+                  <AdvertDetail isLogged={isLogged} handleLogout={handleLogout} handleNewAdvertButton={handleNewAdvertButton} />
                 </AuthComponent>
               } 
             />
@@ -49,7 +53,7 @@ function App({isToken}) {
               path='/adverts/new'
               element={
                 <AuthComponent isLogged={isLogged}>
-                  <NewAdvertPage handleLogout={handleLogout}/>
+                  <NewAdvertPage handleLogout={handleLogout} isLogged={isLogged}/>
                 </AuthComponent>
               } 
             />

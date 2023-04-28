@@ -1,12 +1,16 @@
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useState } from "react";
-import Button from "./Button";
+import '../../styles/Layout.css';
 import Confirm from "./Confirm";
-import '../../styles/Layout.css'
+import Button from "./Button";
 
 
 function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
 
-  const[byeBye, setByeBye] = useState(false)
+  const[byeBye, setByeBye] = useState(false);
+
+  const navigate = useNavigate();
+  const {id} = useParams();
 
   const handleConfirm = () => {
     setByeBye(true);
@@ -20,6 +24,14 @@ function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
     setByeBye(false); 
   }
 
+  const handleGoHome = () => {
+    navigate('/');
+  }
+
+  const location = useLocation();
+
+  console.log(location.pathname);
+
   return (
     <div className="container layoutContainer">
       <header>
@@ -29,9 +41,12 @@ function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
             <>
               {!byeBye ?
                 <>
-                  <Button handleButtonClick={handleNewAdvertButton} title={"Crear anuncio"} />
+                  {location.pathname === '/adverts/new' || location.pathname === `/adverts/${id}` ? <Button handleButtonClick={handleGoHome} title={'🏠NodePop'}/> : null }
+                  {location.pathname === '/adverts' || location.pathname === `/adverts/${id}` ? <Button handleButtonClick={handleNewAdvertButton} title={"Crear anuncio"} /> : null }
+
                   <Button handleButtonClick={handleConfirm} title={"Logout"} />
-                </> 
+
+                </>
               :
                 <>
                   <p>¿Está seguro de que desea salir?</p>

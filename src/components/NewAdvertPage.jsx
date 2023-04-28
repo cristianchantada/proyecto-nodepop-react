@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "./common/Layout";
 import { postAdv } from "../api/service";
 
-function NewAdvertPage({handleLogout}) {
+function NewAdvertPage({handleLogout, isLogged}) {
 
   const navigate = useNavigate();
 
@@ -42,7 +42,7 @@ function NewAdvertPage({handleLogout}) {
   }
 
   return (
-    <Layout handleNewAdvertButton={handleNewAdvertButton} handleLogout={handleLogout}>
+    <Layout isLogged={isLogged} handleLogout={handleLogout}>
       <div className="container newAdvertContainer">
         <h2>Crear nuevo anuncio</h2>
         <form onSubmit={handleSubmit} /* enctype="multipart/form-data" */>

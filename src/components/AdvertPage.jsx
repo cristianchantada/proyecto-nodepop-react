@@ -6,13 +6,10 @@ import Confirm from './common/Confirm'
 import Button from "./common/Button";
 import Layout from "./common/Layout";
 
-
-function AdvertDetail({isLogged, handleLogout}){
+function AdvertDetail({isLogged, handleLogout, handleNewAdvertButton}){
 
   const[advert, setAdvert] = useState({});
   const[deleteProcess, setDeleteProcess] = useState(false);
-
-
 
   console.log()
 
@@ -45,7 +42,7 @@ function AdvertDetail({isLogged, handleLogout}){
   }, [id, navigate])
   
   return (
-    <Layout isLogged={isLogged} handleLogout={handleLogout}>
+    <Layout isLogged={isLogged} handleLogout={handleLogout} handleNewAdvertButton={handleNewAdvertButton}>
       <div className='container detailContainer'>
         <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
         <p>{advert.price}</p>

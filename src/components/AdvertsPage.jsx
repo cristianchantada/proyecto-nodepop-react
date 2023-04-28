@@ -1,21 +1,15 @@
+import placeholder from '../assets/img/placeholder.png';
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
-import Layout from "./common/Layout";
-import { Link, useNavigate } from "react-router-dom";
 import Button from "./common/Button";
-import placeholder from '../assets/img/placeholder.png';
+import Layout from "./common/Layout";
 import '../styles/AdvertsPage.css'
 
-function AdvertsPage({handleLogout, isLogged}) {
+function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
 
   const [adverts, setAdverts] = useState([]);
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
-
-  const navigate = useNavigate();
-
-  const handleNewAdvertButton = (event) => {
-    navigate('/adverts/new');
-  }
 
   const handleFilterSubmit = (event) => {
     event.preventDefault();
@@ -47,7 +41,6 @@ function AdvertsPage({handleLogout, isLogged}) {
       filterAdverts = filterAdverts.filter(advert => advert.sale === operation );
     }
     
-
     (filterAdverts.length === 0) ? setNonFilterAdverts(true) : setAdverts(filterAdverts);
 
   }
