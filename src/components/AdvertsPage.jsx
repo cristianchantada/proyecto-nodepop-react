@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
 import Layout from "./common/Layout";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "./common/button";
+import Button from "./common/Button";
 import placeholder from '../assets/img/placeholder.png';
 import '../styles/AdvertsPage.css'
 
@@ -11,7 +11,8 @@ function AdvertsPage({handleLogout, isLogged}) {
   const [adverts, setAdverts] = useState([]);
   const navigate = useNavigate();
 
-  const handleNewAdvertButton = () => {
+  const handleNewAdvertButton = (event) => {
+    
     navigate('/adverts/new');
   }
 

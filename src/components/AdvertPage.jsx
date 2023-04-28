@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAdv } from "../api/service";
 import { useParams } from "react-router-dom";
-import Button from "./common/button";
+import Button from "./common/Button";
 import { deleteAdv } from "../api/service";
 import { useNavigate } from "react-router-dom";
 import placeholder from '../assets/img/placeholder.png'
@@ -23,9 +23,13 @@ function AdvertDetail(){
 
     getAdv(id).then(advert => {
       setAdvert(advert)
-    });
+    }).catch(error => {
+      if (error.response.status === 404) {
+        return navigate('/404');
+      }
+    });;
 
-  }, [id])
+  }, [id, navigate])
   
   return (
     <div className='container detailContainer'>

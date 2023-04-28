@@ -1,4 +1,4 @@
-import Button from "./button";
+import Button from "./Button";
 
 function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
 
