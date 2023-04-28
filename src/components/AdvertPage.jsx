@@ -4,9 +4,10 @@ import { deleteAdv, getAdv } from "../api/service";
 import { useEffect, useState } from "react";
 import Confirm from './common/Confirm'
 import Button from "./common/Button";
+import Layout from "./common/Layout";
 
 
-function AdvertDetail(){
+function AdvertDetail({isLogged, handleLogout}){
 
   const[advert, setAdvert] = useState({});
   const[deleteProcess, setDeleteProcess] = useState(false);
@@ -22,7 +23,7 @@ function AdvertDetail(){
     setDeleteProcess(true);
   }
   
-  const handleDefinitiveDelete = () => {
+  const handleDefinitive = () => {
         deleteAdv(id).then(alert('El anuncio ha sido borrado correctamente'));
         navigate('/');
   }
@@ -44,22 +45,24 @@ function AdvertDetail(){
   }, [id, navigate])
   
   return (
-    <div className='container detailContainer'>
-      <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
-      <p>{advert.price}</p>
-      {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> :
-        <img src={placeholder} alt="Anuncio sin fotografía"/>}
-      <ul>
-        {advert.tags ? advert.tags.map(tag => 
-          <li key={advert.id}>{tag}</li>) : null}
-      </ul>
-      <br />
-      {!deleteProcess ? 
-        <Button handleButtonClick={handleDelete} title={'Borrar anuncio'}/>
-        :
-        <Confirm handleDefinitiveDelete={handleDefinitiveDelete} handleCancel={handleCancel} />
-      } 
-    </div>
+    <Layout isLogged={isLogged} handleLogout={handleLogout}>
+      <div className='container detailContainer'>
+        <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
+        <p>{advert.price}</p>
+        {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> :
+          <img src={placeholder} alt="Anuncio sin fotografía"/>}
+        <ul>
+          {advert.tags ? advert.tags.map(tag => 
+            <li key={advert.id}>{tag}</li>) : null}
+        </ul>
+        <br />
+        {!deleteProcess ? 
+          <Button handleButtonClick={handleDelete} title={'Borrar anuncio'}/>
+          :
+          <Confirm handleDefinitive={handleDefinitive} handleCancel={handleCancel} title={'Borrar definitivamente'} />
+        } 
+      </div>
+    </Layout>
   );
 }
 

@@ -1,10 +1,10 @@
 import Button from "./Button";
 
-function Confirm({handleDefinitiveDelete, handleCancel}) {
+function Confirm({handleDefinitive, handleCancel, title}) {
 
   return(
     <div className={'container ConfirmContainer'}>
-      <Button handleButtonClick={handleDefinitiveDelete} title={'Borrar definitivamente'} />
+      <Button handleButtonClick={handleDefinitive} title={title} />
       <Button handleButtonClick={handleCancel} title={'Cancelar'} />
     </div>   
   );
