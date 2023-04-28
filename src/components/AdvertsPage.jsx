@@ -1,7 +1,7 @@
 import placeholder from '../assets/img/placeholder.png';
-import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
+import { Link } from "react-router-dom";
 import Button from "./common/Button";
 import Layout from "./common/Layout";
 import '../styles/AdvertsPage.css'
@@ -10,6 +10,7 @@ function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
 
   const [adverts, setAdverts] = useState([]);
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
+
 
   const handleFilterSubmit = (event) => {
     event.preventDefault();
@@ -69,7 +70,7 @@ function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
                         {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> : <img src={placeholder} alt="Anuncio sin fotografía"/> }
                         <ul>
                           {advert.tags.map(tag => 
-                            <li key={advert.id}>{tag}</li>)}
+                            <li key={advert.id + tag}>{tag}</li>)}
                         </ul>
                       </Link> 
                     </li>

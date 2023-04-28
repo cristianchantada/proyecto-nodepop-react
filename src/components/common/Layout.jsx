@@ -30,8 +30,6 @@ function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
 
   const location = useLocation();
 
-  console.log(location.pathname);
-
   return (
     <div className="container layoutContainer">
       <header>

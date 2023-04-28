@@ -11,8 +11,6 @@ function AdvertDetail({isLogged, handleLogout, handleNewAdvertButton}){
   const[advert, setAdvert] = useState({});
   const[deleteProcess, setDeleteProcess] = useState(false);
 
-  console.log()
-
   const navigate = useNavigate();
   const {id} = useParams();
 
@@ -50,7 +48,7 @@ function AdvertDetail({isLogged, handleLogout, handleNewAdvertButton}){
           <img src={placeholder} alt="Anuncio sin fotografía"/>}
         <ul>
           {advert.tags ? advert.tags.map(tag => 
-            <li key={advert.id}>{tag}</li>) : null}
+            <li key={advert.id + tag}>{tag}</li>) : null}
         </ul>
         <br />
         {!deleteProcess ? 

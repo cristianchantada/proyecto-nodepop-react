@@ -34,7 +34,6 @@ export async function getAdv(id) {
 }
 
 export async function deleteAdv(id) {
-  console.log('en serviceDelete', {id});
   const response = await client.delete(`/v1/adverts/${id}`);
   return response;
 }
