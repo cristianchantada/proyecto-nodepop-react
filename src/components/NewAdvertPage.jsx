@@ -9,16 +9,11 @@ function NewAdvertPage({handleLogout, isLogged}) {
     name: '',
     sale: false,
     price: '',
-    tags: {
-      lifestyle: false,
-      work: false,
-      motor: false,
-      mobile: false
-    },
+    tags: [],
     photo: ''
   });
 
-  console.log(advData.tags);
+  console.log(advData.tags)
 
   const navigate = useNavigate();
 
@@ -37,8 +32,19 @@ function NewAdvertPage({handleLogout, isLogged}) {
       setAdvData({...advData, photo: event.target.photo.files[0]})
     }
     if(event.target.name === 'lifestyle' || event.target.name === 'motor' || event.target.name === 'work' || event.target.name === 'mobile'){
- 
-      setAdvData({...advData, tags: {...advData.tags, [event.target.name]: event.target.checked}})
+      
+      let newAdvDataTags = advData.tags
+      if(event.target.checked === true){
+
+        console.log(newAdvDataTags);
+        newAdvDataTags.push(event.target.name);
+        setAdvData({...advData, tags: newAdvDataTags});
+
+      } else {
+        
+        newAdvDataTags = advData.tags.filter((tag) => tag !== event.target.name )
+        setAdvData({...advData , tags: newAdvDataTags});
+      }
 
      }
   }
