@@ -1,4 +1,4 @@
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation, useParams, NavLink } from "react-router-dom";
 import { useState } from "react";
 import '../../styles/Layout.css';
 import Confirm from "./Confirm";
@@ -39,8 +39,8 @@ function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
             <>
               {!byeBye ?
                 <>
-                  {location.pathname === '/adverts/new' || location.pathname === `/adverts/${id}` ? <Button handleButtonClick={handleGoHome} title={'🏠NodePop'}/> : null }
-                  {location.pathname === '/adverts' || location.pathname === `/adverts/${id}` ? <Button handleButtonClick={handleNewAdvertButton} title={"Crear anuncio"} /> : null }
+                  {location.pathname === '/adverts/new' || location.pathname === `/adverts/${id}` ? <NavLink to='/'><Button title={'🏠NodePop'}/></NavLink> : null }
+                  {location.pathname === '/adverts' || location.pathname === `/adverts/${id}` ? <NavLink to='/adverts/new'><Button title={"Crear anuncio"} /></NavLink> : null }
 
                   <Button handleButtonClick={handleConfirm} title={"Logout"} />
 
