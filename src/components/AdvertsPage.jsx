@@ -4,54 +4,62 @@ import { getAdverts } from "../api/service";
 import { Link } from "react-router-dom";
 import Button from "./common/Button";
 import Layout from "./common/Layout";
-import '../styles/AdvertsPage.css'
+import '../styles/AdvertsPage.css';
 
 function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
 
   const [adverts, setAdverts] = useState([]);
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
-
-
-  const handleFilterSubmit = (event) => {
-    event.preventDefault();
-
-    let minPrize = parseFloat(event.target.minPrize.value);
-    let maxPrize = parseFloat(event.target.maxPrize.value);
-
-    if(isNaN(minPrize)){
-      minPrize = 0;
-    }
-
-    if(isNaN(maxPrize)){
-      maxPrize = Infinity;
-    }
-
-    const radioBuy = event.target[2].checked; 
-    const radioSell = event.target[3].checked; 
-    let operation = null;
-
-    if(radioBuy){
-      operation = false
-    } else if(radioSell) {
-      operation = true
-    }
-
-    let filterAdverts = adverts.filter(advert => advert.price >= minPrize && advert.price <= maxPrize);
-
-    if(operation === !null){
-      filterAdverts = filterAdverts.filter(advert => advert.sale === operation );
-    }
-    
-    (filterAdverts.length === 0) ? setNonFilterAdverts(true) : setAdverts(filterAdverts);
-
-  }
-
-  const handleReturn = () => setNonFilterAdverts(false)
+  const [auxAdverts, setAuxAdverts] = useState([]);
+  
+  console.log('ADVERTS', adverts);
+  console.log('AUXadverts',auxAdverts);
 
   useEffect(()=> {
 
-    getAdverts().then(adverts => setAdverts(adverts));
+    getAdverts().then(adverts => {
+      setAdverts(adverts);
+      setAuxAdverts(adverts);
+    });
   }, []);
+
+  const handleFilterSubmit = async (event) => {
+    event.preventDefault();
+
+    getAdverts().then(adverts => {
+      
+      let minPrize = parseFloat(event.target.minPrize.value);
+      let maxPrize = parseFloat(event.target.maxPrize.value);
+      
+      if(isNaN(minPrize)){
+        minPrize = 0;
+      }
+
+      if(isNaN(maxPrize)){
+        maxPrize = Infinity;
+      }
+
+      const radioBuy = event.target[2].checked; 
+      const radioSell = event.target[3].checked; 
+      let operation = null;
+
+      if(radioBuy){
+        operation = false
+      } else if(radioSell) {
+        operation = true
+      }
+
+      let filterAdverts = adverts.filter(advert => advert.price >= minPrize && advert.price <= maxPrize);
+
+      if(operation === !null){
+        filterAdverts = filterAdverts.filter(advert => advert.sale === operation );
+      }
+
+      (filterAdverts.length === 0) ? setNonFilterAdverts(true) : setAdverts(filterAdverts);
+    });
+  }
+
+  const handleReturn = () => setNonFilterAdverts(false)
 
   return (
     <Layout isLogged={isLogged} handleLogout={handleLogout} handleNewAdvertButton={handleNewAdvertButton}>
