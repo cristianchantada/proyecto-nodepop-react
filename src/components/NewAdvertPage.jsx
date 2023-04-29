@@ -54,6 +54,8 @@ function NewAdvertPage({handleLogout, isLogged}) {
     postAdv(advData).then(response => navigate(`/adverts/${response.id}`));
   }
 
+  const desabilitation = !advData.name || !advData.price || advData.tags.length === 0;
+
   return (
     <Layout isLogged={isLogged} handleLogout={handleLogout}>
       <div className="container newAdvertContainer">
@@ -76,7 +78,7 @@ function NewAdvertPage({handleLogout, isLogged}) {
           </label>
           <label htmlFor="photo">Fotografía</label>
             <input type="file" name="photo" id="photo" />
-          <button type="submit">Crear</button>
+          <button type="submit" disabled={desabilitation}>Crear</button>
         </form>
       </div>
     </Layout>
