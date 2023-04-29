@@ -51,8 +51,11 @@ function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
 
       let filterAdverts = adverts.filter(advert => advert.price >= minPrize && advert.price <= maxPrize);
 
-      if(operation === !null){
+      console.log(operation);
+      if(operation === true){
         filterAdverts = filterAdverts.filter(advert => advert.sale === operation );
+      } else if (operation === false) {
+        filterAdverts = filterAdverts.filter(advert => advert.sale === false );
       }
 
       (filterAdverts.length === 0) ? setNonFilterAdverts(true) : setAdverts(filterAdverts);
