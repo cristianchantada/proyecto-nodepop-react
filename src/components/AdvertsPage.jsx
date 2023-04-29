@@ -108,6 +108,7 @@ function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
                   </div>
                   <button type="submit">Filtrar</button>
                 </form>
+                <Link to={'/'}><Button title={'Restablece anuncios'}/></Link>
               </div> 
             </>    
               :
