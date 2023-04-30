@@ -68,7 +68,9 @@ function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
     <Layout isLogged={isLogged} handleLogout={handleLogout} handleNewAdvertButton={handleNewAdvertButton}>
       {!nonFilterAdverts ? 
         <div className="container AdvertsPage">
-          <h2>Anuncios</h2>
+          <div className='title-container'>
+            <h2>Anuncios</h2>
+          </div>
           { adverts.length ?
             <>
               <div className='container adverts'>

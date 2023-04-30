@@ -1,4 +1,5 @@
-import { useNavigate, useLocation, useParams, NavLink } from "react-router-dom";
+import { useNavigate, useLocation, useParams, NavLink, Link } from "react-router-dom";
+import logo from '../../assets/img/node.png';
 import { useState } from "react";
 import '../../styles/Layout.css';
 import Confirm from "./Confirm";
@@ -33,13 +34,18 @@ function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
   return (
     <div className="container layoutContainer">
       <header>
-        <h1>NodePop</h1>
+        <Link className="Link" to={'/'}>
+          <div className="img-title-container">
+              <img className="logoImg" src={logo} alt="Logo de Node Pop" />
+              <h1>NodePop</h1>
+          </div>
+        </Link>
         <nav>
           {isLogged ?
             <>
               {!byeBye ?
                 <>
-                  {location.pathname === '/adverts/new' || location.pathname === `/adverts/${id}` ? <NavLink to='/'><Button title={'🏠NodePop'}/></NavLink> : null }
+                  {location.pathname === '/adverts/new' || location.pathname === `/adverts/${id}` ? <NavLink to='/'><Button title={'NodePop Home'}/></NavLink> : null }
                   {location.pathname === '/adverts' || location.pathname === `/adverts/${id}` ? <NavLink to='/adverts/new'><Button title={"Crear anuncio"} /></NavLink> : null }
 
                   <Button handleButtonClick={handleConfirm} title={"Logout"} />

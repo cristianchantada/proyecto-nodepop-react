@@ -1,3 +1,4 @@
+import '../../styles/Button.css'
 
 function Button({title, handleButtonClick}) {
 

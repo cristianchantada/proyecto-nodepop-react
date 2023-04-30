@@ -1,5 +1,11 @@
-.container{
+
+.title-container {
+    font-size: x-large;
+    display: flex;
+    height: 70px;
     align-items: center;
+
+    justify-content: center;
 }
 
 .advertsList {
@@ -9,12 +15,12 @@
     align-items: center;
     justify-content: center;
     grid-template-columns: repeat(auto-fill);
-    background-color: rgb(202, 192, 192);
     border-radius: 20px;
-    border: 2px solid orange;
+
 }
 
 .advertItem {
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,4 +29,110 @@
     border-radius: 25px;
     width: 400px;
     height: 400px;
+    box-shadow: 2px 2px 4px grey;
 }
+
+
+
+/* .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+  
+  .adverts {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .filterContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .advertsList {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+  }
+  
+  .advertItem {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .advertItem h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .advertItem h3 span {
+    font-weight: normal;
+    color: #888;
+  }
+  
+  .advertItem img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .advertItem ul li {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .filterContainer p {
+    margin: 0;
+    color: #333;
+  }
+  
+  .filterContainer form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+  
+  .filterContainer label {
+    display: block;
+    color: #333;
+  }
+  
+  .filterContainer input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  
+  .filterContainer button {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filterContainer button:hover {
+    background-color: #0062cc;
+  }
+  
+  .filterContainer a {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 1rem;
+    color: #007bff;
+  } */
+  
+
+  
+
