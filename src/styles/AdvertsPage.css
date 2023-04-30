@@ -1,22 +1,21 @@
-
 .title-container {
-    font-size: x-large;
-    display: flex;
-    height: 70px;
-    align-items: center;
-    justify-content: center;
+  font-size: x-large;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
 }
 
 .advertsList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px 20px;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill);
-    border-radius: 20px;
-    background-color: #ffffff;
-    margin: auto 180px auto 180px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill);
+  border-radius: 20px;
+  background-color: #ffffff;
+  margin: auto 180px auto 180px;
 }
 
 .advertItem {
@@ -33,10 +32,9 @@
 }
 
 .advertItem:hover {
-  background-color: #4CAF50;
+  background-color: #4caf50;
 }
-  
-  
+
 .advertItem a {
   display: flex;
   flex-direction: column;
@@ -53,98 +51,98 @@
   font-size: 16px;
   font-weight: bold;
 }
-  
-  .advertItem h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
 
-  .advertItem h4 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
+.advertItem h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
-  .advertItem p {
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  .advertItem img {
-    border-radius: 25px;
-    width: 90%;
-    height: 200px;
-    object-fit: cover;
-    margin-top: 10px;
-  }
-  
-  .advertItem ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
-    padding: 0;
-  }
-  
-  .advertItem li {
-    background-color: #f1f1f1;
-    border: 2px solid #222;
-    border-radius: 15px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    margin: 10px;
-    font-size: 16px;
-    list-style: none;
-  }
+.advertItem h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.advertItem p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.advertItem img {
+  border-radius: 25px;
+  width: 90%;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.advertItem ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.advertItem li {
+  background-color: #f1f1f1;
+  border: 2px solid #222;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  list-style: none;
+}
 
 .filterContainer {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .inputs-price-container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
 }
 
-    .input-minPrize-container {
-        padding: 15px;
-    }
+.input-minPrize-container {
+  padding: 15px;
+}
 
 .title-checks-container {
-    padding: 10px;
+  padding: 10px;
 }
 
-    .title-checks-container p, .inputs-price-container p  {
-        padding-top: 10px;
-        font-weight: 500;
-        font-size: 16px;
-    }
+.title-checks-container p,
+.inputs-price-container p {
+  padding-top: 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
 
-    .inputs-operation-container {
-        padding: 15px;
-    }
+.inputs-operation-container {
+  padding: 15px;
+}
 
-    .inputs-operation-container * {
-        padding: 5px;
-    }   
+.inputs-operation-container * {
+  padding: 5px;
+}
 
 .button-filter-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
