@@ -10,14 +10,13 @@ function NewAdvertPage({ handleLogout, isLogged }) {
     sale: false,
     price: "",
     tags: [],
-    photo: "",
+    photo: '',
   });
-
-  console.log(advData.tags);
 
   const navigate = useNavigate();
 
   const handleChange = (event) => {
+
     if (event.target.name === "name") {
       setAdvData({ ...advData, name: event.target.value });
     }
@@ -28,7 +27,7 @@ function NewAdvertPage({ handleLogout, isLogged }) {
       setAdvData({ ...advData, price: event.target.value });
     }
     if (event.target.name === "photo") {
-      setAdvData({ ...advData, photo: event.target.photo.files[0] });
+      setAdvData({ ...advData, photo: event.target.files[0] });
     }
     if (
       event.target.name === "lifestyle" ||
@@ -38,7 +37,6 @@ function NewAdvertPage({ handleLogout, isLogged }) {
     ) {
       let newAdvDataTags = advData.tags;
       if (event.target.checked === true) {
-        console.log(newAdvDataTags);
         newAdvDataTags.push(event.target.name);
         setAdvData({ ...advData, tags: newAdvDataTags });
       } else {
@@ -136,8 +134,8 @@ function NewAdvertPage({ handleLogout, isLogged }) {
             required
           />
           <label htmlFor="photo">Subir una fotografía</label>
-          <input type="file" name="photo" id="photo" />
-          <button type="submit" disabled={buttonDisabled}>
+          <input type="file" name="photo" id="photo" onChange={handleChange} />
+          <button type="submit" disabled={buttonDisabled} >
             Crear
           </button>
         </form>

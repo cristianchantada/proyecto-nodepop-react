@@ -11,9 +11,6 @@ function AdvertsPage({ handleLogout, isLogged, handleNewAdvertButton }) {
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
   const [auxAdverts, setAuxAdverts] = useState([]);
 
-  console.log("ADVERTS", adverts);
-  console.log("AUXadverts", auxAdverts);
-
   useEffect(() => {
     getAdverts().then((adverts) => {
       setAdverts(adverts);
@@ -50,7 +47,6 @@ function AdvertsPage({ handleLogout, isLogged, handleNewAdvertButton }) {
         (advert) => advert.price >= minPrize && advert.price <= maxPrize
       );
 
-      console.log(operation);
       if (operation === true) {
         filterAdverts = filterAdverts.filter(
           (advert) => advert.sale === operation
