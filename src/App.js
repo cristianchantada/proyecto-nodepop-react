@@ -1,10 +1,11 @@
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import AuthComponent from './components/auth/AuthComponent';
-import AdvertDetail from './components/AdvertPage';
+import NewAdvertPage from './components/NewAdvertPage';
+import Error404 from './components/common/Error404';
 import { removeRequestHeaders } from './api/client';
 import LoginPage from './components/auth/LoginPage';
+import AdvertDetail from './components/AdvertPage';
 import AdvertsPage from './components/AdvertsPage';
-import NewAdvertPage from './components/NewAdvertPage';
 import { useState } from 'react';
 import './App.css';
 
@@ -59,7 +60,7 @@ function App({isToken}) {
             />
             <Route path='/login' element={<LoginPage handleLogin={handleLogin} />} />
             <Route path='/' element={<Navigate to='/adverts'/>} />
-            <Route path='/404' element={<p>Hubo un error, Papito !</p>}/>
+            <Route path='/404' element={<Error404 isLogged={isLogged} handleLogout={handleLogout} handleNewAdvertButton={handleNewAdvertButton}/>}/>
             <Route path='*' element={<Navigate to='/404' />} />
         </Routes>       
     </div>

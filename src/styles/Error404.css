@@ -1,0 +1,16 @@
+
+.container404 {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container404 * {
+    padding: 20px;
+}
+
+.container404 p {
+    font-size: 20px;
+}

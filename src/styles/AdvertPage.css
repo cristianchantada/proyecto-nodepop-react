@@ -12,11 +12,11 @@
     
 }
 
-button {
+.detailContainer button {
     background-color: #158117;
 }
 
-button:hover {
+.detailContainer button:hover {
     background-color: #c70e0e;
 }
 

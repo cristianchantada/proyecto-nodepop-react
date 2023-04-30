@@ -45,8 +45,8 @@ function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
             <>
               {!byeBye ?
                 <>
-                  {location.pathname === '/adverts/new' || location.pathname === `/adverts/${id}` ? <NavLink to='/'><Button title={'NodePop Home'}/></NavLink> : null }
-                  {location.pathname === '/adverts' || location.pathname === `/adverts/${id}` ? <NavLink to='/adverts/new'><Button title={"Crear anuncio"} /></NavLink> : null }
+                  {location.pathname === '/adverts/new' || location.pathname === `/adverts/${id}` || location.pathname === `/404` ? <NavLink to='/'><Button title={'NodePop Home'}/></NavLink> : null }
+                  {location.pathname === '/adverts' || location.pathname === `/adverts/${id}`|| location.pathname === `/404` ? <NavLink to='/adverts/new'><Button title={"Crear anuncio"} /></NavLink> : null }
 
                   <Button handleButtonClick={handleConfirm} title={"Logout"} />
 
