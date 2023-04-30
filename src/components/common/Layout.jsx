@@ -1,4 +1,4 @@
-import { useNavigate, useLocation, useParams, NavLink, Link } from "react-router-dom";
+import { useLocation, useParams, NavLink, Link } from "react-router-dom";
 import logo from "../../assets/img/node.png";
 import { useState } from "react";
 import "../../styles/Layout.css";
@@ -8,7 +8,6 @@ import Button from "./Button";
 function Layout({ isLogged, children, handleNewAdvertButton, handleLogout }) {
   const [byeBye, setByeBye] = useState(false);
 
-  const navigate = useNavigate();
   const { id } = useParams();
 
   const handleConfirm = () => {
@@ -21,10 +20,6 @@ function Layout({ isLogged, children, handleNewAdvertButton, handleLogout }) {
 
   const handleCancel = () => {
     setByeBye(false);
-  };
-
-  const handleGoHome = () => {
-    navigate("/");
   };
 
   const location = useLocation();

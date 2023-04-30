@@ -55,7 +55,7 @@ function NewAdvertPage({ handleLogout, isLogged }) {
     postAdv(advData).then((response) => navigate(`/adverts/${response.id}`));
   };
 
-  const desabilitation =
+  const buttonDisabled =
     !advData.name || !advData.price || advData.tags.length === 0;
 
   return (
@@ -84,7 +84,7 @@ function NewAdvertPage({ handleLogout, isLogged }) {
             <option value={true}>Vender</option>
           </select>
           <label htmlFor="tags">
-            Tags
+            Tags:
             <label htmlFor="lifestyle" id="lifestyle" name="lifestyle">
               <input
                 checked={advData.tags.lifestyle}
@@ -137,7 +137,7 @@ function NewAdvertPage({ handleLogout, isLogged }) {
           />
           <label htmlFor="photo">Subir una fotografía</label>
           <input type="file" name="photo" id="photo" />
-          <button type="submit" disabled={desabilitation}>
+          <button type="submit" disabled={buttonDisabled}>
             Crear
           </button>
         </form>
