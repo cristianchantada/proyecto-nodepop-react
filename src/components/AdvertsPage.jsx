@@ -147,20 +147,20 @@ function AdvertsPage({ handleLogout, isLogged, handleNewAdvertButton }) {
               </div>
             </>
           ) : (
-            <>
+            <div className="nonAdvertsContainer">
               <h3>Todavía no existe ningún anuncio</h3>
               <Button
                 handleButtonClick={handleNewAdvertButton}
                 title={"Sea usted el primero en publicar"}
               />
-            </>
+            </div>
           )}
         </div>
       ) : (
-        <>
+        <div className="mismatchContainer">
           <p>Lo sentimos, su búsqueda no ha devuelto ninguna coincidencia</p>
           <Button handleButtonClick={handleReturn} title={"Volver"} />
-        </>
+        </div>
       )}
     </Layout>
   );
