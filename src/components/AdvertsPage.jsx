@@ -91,31 +91,44 @@ function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
                 </ul> 
               </div>
               <div className="container filterContainer">
-                <p>Seleccione los filtros a aplicar</p>
+                <h3>Seleccione los filtros a aplicar:</h3>
                 <form onSubmit={handleFilterSubmit}>
                   <div>
-                    <label htmlFor="minPrize">Precio mínimo</label>
-                    <input type="text" id="minPrize" name="minPrize" />
-                    <label htmlFor="maxPrize">Precio máximo</label>
-                    <input type="text" id="maxPrize" name="maxPrize" />
+                    <div className='inputs-price-container'>
+                      <p>Seleccione el rango de precios: </p>
+                      <div>
+                        <div className='input-minPrize-container'>
+                          <label htmlFor="minPrize">Precio mínimo: </label>
+                          <input type="text" id="minPrize" name="minPrize" />
+                        </div>
+                        <div className='input-maxPrize-container'>
+                          <label htmlFor="maxPrize">Precio máximo: </label>
+                          <input type="text" id="maxPrize" name="maxPrize" />
+                        </div>
+                        </div>
+                    </div>
                   </div>
-                  <div>
-                    <p>Seleccione tipo de operación</p>
-                    <input type="radio" id="buy" name="radio" value="buy" />
-                    <label htmlFor="buy">Compra</label>
-                    <input type="radio" id="sell" name="radio" value="sell" />
-                    <label htmlFor="sell">Venta</label>
-                    <input type="radio" id="buySell" name="radio" value="buySell" defaultChecked /> 
-                    <label htmlFor="buySell">Compra y venta</label>
+                  <div className='title-checks-container'>
+                    <p>Seleccione tipo de operación: </p>
+                    <div className='inputs-operation-container'>
+                      <input type="radio" id="buy" name="radio" value="buy" />
+                      <label htmlFor="buy">Compra</label>
+                      <input type="radio" id="sell" name="radio" value="sell" />
+                      <label htmlFor="sell">Venta</label>
+                      <input type="radio" id="buySell" name="radio" value="buySell" defaultChecked /> 
+                      <label htmlFor="buySell">Compra y venta</label>
+                    </div>
                   </div>
-                  <button type="submit">Filtrar</button>
+                  <div className='button-filter-container'>
+                    <button type="submit">Filtrar</button>
+                    <Link to={'/'}><Button title={'Restablece anuncios'}/></Link>
+                  </div>
                 </form>
-                <Link to={'/'}><Button title={'Restablece anuncios'}/></Link>
               </div> 
             </>    
               :
               <>
-                <p>Todavía no existe ningún anuncio</p>
+                <h3>Todavía no existe ningún anuncio</h3>
                 <Button handleButtonClick={handleNewAdvertButton} title={'Sea usted el primero en publicar'}/>
               </>
           }

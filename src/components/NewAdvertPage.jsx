@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { postAdv } from "../api/service";
 import Layout from "./common/Layout";
 import { useState } from "react";
+import '../styles/NewAdvertPage.css'
 
 function NewAdvertPage({handleLogout, isLogged}) {
 
@@ -68,15 +69,15 @@ function NewAdvertPage({handleLogout, isLogged}) {
               <option value={false}>Comprar</option>
               <option value={true}>Vender</option>
             </select>
-          <label htmlFor="tags">Tags</label>
+          <label htmlFor="tags">Tags
             <label htmlFor="lifestyle" id='lifestyle' name='lifestyle' ><input checked={advData.tags.lifestyle} onChange={handleChange} type="checkbox" name="lifestyle" id="lifestyle" />Lifestyle</label>
             <label htmlFor="work" id='work' name='work' ><input checked={advData.tags.work} onChange={handleChange} type="checkbox" name="work" id="work" />Work</label>
             <label htmlFor="motor" id='motor' name='motor' ><input checked={advData.tags.motor} onChange={handleChange} type="checkbox" name="motor" id="motor" />Motor</label>
             <label htmlFor="mobile" id='mobile' name='mobile' ><input checked={advData.tags.mobile} onChange={handleChange} type="checkbox" name="mobile" id="mobile" />Mobile</label>
-          <label htmlFor="price">
-            <input value={advData.price} onChange={handleChange} type="text" name="price" id="price" required/>
           </label>
-          <label htmlFor="photo">Fotografía</label>
+            <label htmlFor="price">Precio</label>
+            <input value={advData.price} onChange={handleChange} type="text" name="price" id="price" required/>
+          <label htmlFor="photo">Subir una fotografía</label>
             <input type="file" name="photo" id="photo" />
           <button type="submit" disabled={desabilitation}>Crear</button>
         </form>

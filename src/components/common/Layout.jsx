@@ -65,7 +65,7 @@ function Layout ({isLogged, children, handleNewAdvertButton, handleLogout}) {
         {children}
       </main>
       <footer>
-          <p>Cristian Copyright 2023</p>
+          <p>&copy; Cristian Copyright 2023</p>
       </footer>
     </div>
   );
