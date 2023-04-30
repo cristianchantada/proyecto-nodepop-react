@@ -58,6 +58,12 @@ button[type="submit"]:hover {
   background-color: #3e8e41;
 }
 
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
 input:required:invalid {
   border-color: red;
 }
