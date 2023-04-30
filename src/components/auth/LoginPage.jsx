@@ -1,6 +1,7 @@
 import { userLogin } from "../../api/service";
 import Layout from "../common/Layout";
 import { useNavigate } from "react-router-dom";
+import '../../styles/LoginPage.css'
 
 function LoginPage({handleLogin}){
 

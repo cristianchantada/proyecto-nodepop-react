@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Confirm from './common/Confirm'
 import Button from "./common/Button";
 import Layout from "./common/Layout";
+import '../styles/AdvertPage.css'
 
 function AdvertDetail({isLogged, handleLogout, handleNewAdvertButton}){
 

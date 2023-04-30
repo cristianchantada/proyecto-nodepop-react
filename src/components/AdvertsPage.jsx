@@ -77,9 +77,10 @@ function AdvertsPage({handleLogout, isLogged, handleNewAdvertButton}) {
                 <ul className="advertsList">
                   {adverts.map(advert => (
                     <li className="advertItem" key={advert.id}>
-                      <Link to={`/adverts/${advert.id}`}> 
-                        <h3><span>Se {advert.sale ? "vende": "compra"}:</span> {advert.name}</h3>
-                        <p>{advert.price}</p>
+                      <Link to={`/adverts/${advert.id}`}>
+                        <p>{advert.sale ? "Venta": "Compra"}</p> 
+                        <h3> {advert.name}.</h3>
+                        <h4>Precio {advert.price} € .</h4>
                         {advert.photo? <img src={advert.photo} alt={'fotografía de' + advert.name} /> : <img src={placeholder} alt="Anuncio sin fotografía"/> }
                         <ul>
                           {advert.tags.map(tag => 
