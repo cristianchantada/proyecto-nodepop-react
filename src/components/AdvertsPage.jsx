@@ -2,7 +2,7 @@ import placeholder from "../assets/img/placeholder.png";
 import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
 import { Link } from "react-router-dom";
-import Button from "./common/Button";
+import Button from "./common/ButtonComponent";
 import Layout from "./common/Layout";
 import "../styles/AdvertsPage.css";
 

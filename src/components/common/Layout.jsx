@@ -3,7 +3,7 @@ import logo from "../../assets/img/node.png";
 import { useState } from "react";
 import "../../styles/Layout.css";
 import Confirm from "./Confirm";
-import Button from "./Button";
+import Button from "./ButtonComponent";
 
 function Layout({ isLogged, children, handleNewAdvertButton, handleLogout }) {
   const [byeBye, setByeBye] = useState(false);
