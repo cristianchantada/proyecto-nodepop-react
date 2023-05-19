@@ -19,8 +19,10 @@ function AdvertDetail({ isLogged, handleLogout, handleNewAdvertButton }) {
   };
 
   const handleDefinitive = () => {
-    deleteAdv(id).then(alert("El anuncio ha sido borrado correctamente"));
-    navigate("/");
+    deleteAdv(id).then(()=> {
+      alert("El anuncio ha sido borrado correctamente")
+      navigate("/");
+    });
   };
 
   const handleCancel = () => {

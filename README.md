@@ -2,6 +2,20 @@
 
 ## 2a corrección de la práctica; notas para David:
 
+1. Se consigue que en el repositorio el nombre de Button.jsx no figure como button.jsx. ('/src/components/common/Button.jsx').
+2. 
+3. 
+4. 
+5. 
+6. 
+7. Se inserta en el .then() la redirección a '/' para que para que no se lleve a cabo antes de resolver el borrado
+('/src/components/AdvertsPage.jsx').
+8. 
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

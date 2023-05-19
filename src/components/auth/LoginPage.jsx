@@ -1,10 +1,11 @@
 import { userLogin } from "../../api/service";
 import Layout from "../common/Layout";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../../styles/LoginPage.css";
 
 function LoginPage({ handleLogin }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +19,9 @@ function LoginPage({ handleLogin }) {
 
     userLogin(credentials, checked).then(() => {
       handleLogin();
-      navigate("/");
+
+      const to = location.state?.from?.pathname || '/';
+      navigate(to);
     });
   };
 
