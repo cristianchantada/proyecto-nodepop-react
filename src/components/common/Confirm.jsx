@@ -1,4 +1,4 @@
-import Button from "./ButtonComponent";
+import Button from "./Button";
 
 function Confirm({ handleDefinitive, handleCancel, title }) {
   return (
