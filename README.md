@@ -4,7 +4,7 @@
 
 1. Se consigue que en el repositorio el nombre de Button.jsx no figure como button.jsx. ('/src/components/common/Button.jsx').
 2. 
-3. 
+3. Se utiliza el hook useLocation() en el componente de autenticación (AuthComponent.jsx) junto con la propiedad 'state' en su Navigate para pasárselo a LoginPage y redirigir a la página solicitada por el usuario cuando haga el login.
 4. 
 5. 
 6. 
