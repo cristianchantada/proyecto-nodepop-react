@@ -1,5 +1,6 @@
 # Práctica de Cristian Varela Casas, módulo de Fundamentos de React, Bootcamp Web XIV de KeepCoding.
 
+## 2a corrección de la práctica; notas para David:
 
 # Getting Started with Create React App
 
