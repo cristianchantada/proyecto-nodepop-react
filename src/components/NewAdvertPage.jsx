@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { postAdv } from "../api/service";
 import Layout from "./common/Layout";
 import "../styles/NewAdvertPage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getTags } from "../api/service";
 
 function NewAdvertPage({ handleLogout, isLogged }) {
   const [advData, setAdvData] = useState({
@@ -12,6 +13,14 @@ function NewAdvertPage({ handleLogout, isLogged }) {
     tags: [],
     photo: null,
   });
+
+  const [tags, setTags] = useState([]);
+
+  useEffect(()=> {
+    getTags().then((tags) => {
+      setTags(tags);
+    })
+  })
 
   const navigate = useNavigate();
 

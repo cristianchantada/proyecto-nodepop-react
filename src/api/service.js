@@ -4,6 +4,10 @@ export function getAdverts() {
   return client.get("/v1/adverts");
 }
 
+export function getTags() {
+  return client.get("/v1/adverts/tags");
+}
+
 export async function userLogin(credentials, checked) {
   const response = await client.post("/auth/login", credentials);
   setRequestHeaders(response.accessToken);

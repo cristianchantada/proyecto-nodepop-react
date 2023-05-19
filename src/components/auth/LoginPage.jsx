@@ -49,7 +49,7 @@ function LoginPage({ handleLogin }) {
           <button type="submit">Login</button>
         </form>
         {error && (
-          <p>{error.message}<span onClick={resetError} class="delete-icon">X</span></p>
+          <p>{error.message}<span onClick={resetError} className="delete-icon">X</span></p>
         )}
       </div>
     </Layout>
