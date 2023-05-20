@@ -38,10 +38,7 @@ function NewAdvertPage() {
       setAdvData({ ...advData, photo: event.target.files[0] });
     }
     if (
-      event.target.name === "lifestyle" ||
-      event.target.name === "motor" ||
-      event.target.name === "work" ||
-      event.target.name === "mobile"
+      tags.includes(event.target.name)
     ) {
       let newAdvDataTags = advData.tags;
       if (event.target.checked === true) {
@@ -91,46 +88,18 @@ function NewAdvertPage() {
           </select>
           <label htmlFor="tags">
             Tags:
-            <label htmlFor="lifestyle" id="lifestyle" name="lifestyle">
-              <input
-                checked={advData.tags.lifestyle}
-                onChange={handleChange}
-                type="checkbox"
-                name="lifestyle"
-                id="lifestyle"
-              />
-              Lifestyle
-            </label>
-            <label htmlFor="work" id="work" name="work">
-              <input
-                checked={advData.tags.work}
-                onChange={handleChange}
-                type="checkbox"
-                name="work"
-                id="work"
-              />
-              Work
-            </label>
-            <label htmlFor="motor" id="motor" name="motor">
-              <input
-                checked={advData.tags.motor}
-                onChange={handleChange}
-                type="checkbox"
-                name="motor"
-                id="motor"
-              />
-              Motor
-            </label>
-            <label htmlFor="mobile" id="mobile" name="mobile">
-              <input
-                checked={advData.tags.mobile}
-                onChange={handleChange}
-                type="checkbox"
-                name="mobile"
-                id="mobile"
-              />
-              Mobile
-            </label>
+            {tags.forEach(tag => {
+              <label htmlFor={tag} id={tag} name={tag}> 
+                <input
+                  checked={advData.tags.lifestyle}
+                  onChange={handleChange}
+                  type="checkbox"
+                  name={tag}
+                  id={tag}
+                />
+                {tag}
+              </label>
+            })}
           </label>
           <label htmlFor="price">Precio</label>
           <input

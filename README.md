@@ -10,7 +10,7 @@
 6. 
 7. Se inserta en el .then() la redirección a '/' para que para que no se lleve a cabo antes de resolver el borrado
 ('/src/components/AdvertsPage.jsx').
-8. 
+8. Se elimina dos Componentes React innecesarios: Button.jsx y Confirm.jsx (se sustituyen por elementos button y sus onClick's
 
 # Getting Started with Create React App
 
