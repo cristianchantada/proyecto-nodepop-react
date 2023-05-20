@@ -2,8 +2,6 @@ import { useLocation, useParams, NavLink, Link } from "react-router-dom";
 import logo from "../../assets/img/node.png";
 import { useState, useContext  } from "react";
 import "../../styles/Layout.css";
-import Confirm from "./Confirm";
-import Button from "./Button";
 import { AuthContext } from "../auth/authContext";
 
 function Layout({children}) {
@@ -45,27 +43,23 @@ function Layout({children}) {
                   location.pathname === `/adverts/${id}` ||
                   location.pathname === `/404` ? (
                     <NavLink to="/">
-                      <Button title={"NodePop Home"} />
+                      <button>NodePop Home</button>
                     </NavLink>
                   ) : null}
                   {location.pathname === "/adverts" ||
                   location.pathname === `/adverts/${id}` ||
                   location.pathname === `/404` ? (
                     <NavLink to="/adverts/new">
-                      <Button title={"Crear anuncio"} />
+                      <button>Crear anuncio</button>
                     </NavLink>
                   ) : null}
-
-                  <Button handleButtonClick={handleConfirm} title={"Logout"} />
+                  <button onClick={handleConfirm}>Logout</button>
                 </>
               ) : (
                 <>
                   <p>¿Está seguro de que desea salir?</p>
-                  <Confirm
-                    handleDefinitive={handleDefinitive}
-                    handleCancel={handleCancel}
-                    title={"Sí"}
-                  />
+                  <button onClick={handleDefinitive}>Borrar definitivamente</button>
+                  <button onClick={handleCancel}>Cancelar</button>
                 </>
               )}
             </>

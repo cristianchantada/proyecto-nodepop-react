@@ -2,8 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import placeholder from "../assets/img/placeholder.png";
 import { deleteAdv, getAdv } from "../api/service";
 import { useEffect, useState } from "react";
-import Confirm from "./common/Confirm";
-import Button from "./common/Button";
 import Layout from "./common/Layout";
 import "../styles/AdvertPage.css";
 
@@ -62,11 +60,10 @@ function AdvertDetail() {
         {!deleteProcess ? (
           <button onClick={handleDelete}>Borrar anuncio</button>
         ) : (
-          <Confirm
-            handleDefinitive={handleDefinitive}
-            handleCancel={handleCancel}
-            title={"Borrar definitivamente"}
-          />
+          <>
+            <button onClick={handleDefinitive}>Borrar definitivamente</button>
+            <button onClick={handleCancel}>Cancelar</button>
+          </> 
         )}
       </div>
     </Layout>

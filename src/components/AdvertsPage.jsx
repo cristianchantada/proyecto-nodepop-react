@@ -2,7 +2,6 @@ import placeholder from "../assets/img/placeholder.png";
 import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
 import { Link } from "react-router-dom";
-import Button from "./common/Button";
 import Layout from "./common/Layout";
 import "../styles/AdvertsPage.css";
 
@@ -136,7 +135,7 @@ function AdvertsPage() {
                   <div className="button-filter-container">
                     <button type="submit">Filtrar</button>
                     <Link to={"/"}>
-                      <Button title={"Restablece anuncios"} />
+                      <button>Restablece anuncios</button>
                     </Link>
                   </div>
                 </form>
@@ -145,10 +144,8 @@ function AdvertsPage() {
           ) : (
             <div className="nonAdvertsContainer">
               <h3>Todavía no existe ningún anuncio</h3>
-              <Link to={"/"}>
-                <Button
-                  title={"Sea usted el primero en publicar"}
-                />
+              <Link to={"/adverts/new"}>
+                <button>Sea usted el primero en publicar</button>
               </Link>
             </div>
           )}

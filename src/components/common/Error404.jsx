@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "../../styles/Error404.css";
 import Layout from "./Layout";
-import Button from "./Button";
 
 function Error404() {
   return (
@@ -12,7 +11,7 @@ function Error404() {
           Lo siento, la página que estás buscando no se encuentra disponible.
         </p>
         <NavLink to="/">
-          <Button title={"Volver a NodePop"} />
+          <button>Volver a NodePop</button>
         </NavLink>
       </div>
     </Layout>
