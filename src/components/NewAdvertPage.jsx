@@ -5,7 +5,7 @@ import "../styles/NewAdvertPage.css";
 import { useState, useEffect } from "react";
 import { getTags } from "../api/service";
 
-function NewAdvertPage({ handleLogout, isLogged }) {
+function NewAdvertPage() {
   const [advData, setAdvData] = useState({
     name: "",
     sale: false,
@@ -19,8 +19,8 @@ function NewAdvertPage({ handleLogout, isLogged }) {
   useEffect(()=> {
     getTags().then((tags) => {
       setTags(tags);
-    })
-  })
+    });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -35,7 +35,6 @@ function NewAdvertPage({ handleLogout, isLogged }) {
       setAdvData({ ...advData, price: event.target.value });
     }
     if (event.target.name === "photo") {
-      console.log("Por aquí pasa");
       setAdvData({ ...advData, photo: event.target.files[0] });
     }
     if (
@@ -66,7 +65,7 @@ function NewAdvertPage({ handleLogout, isLogged }) {
     !advData.name || !advData.price || advData.tags.length === 0;
 
   return (
-    <Layout isLogged={isLogged} handleLogout={handleLogout}>
+    <Layout>
       <div className="container newAdvertContainer">
         <h2>Crear nuevo anuncio</h2>
         <form onSubmit={handleSubmit}>

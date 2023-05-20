@@ -3,13 +3,9 @@ import "../../styles/Error404.css";
 import Layout from "./Layout";
 import Button from "./Button";
 
-function Error404({ handleLogout, isLogged, handleNewAdvertButton }) {
+function Error404() {
   return (
-    <Layout
-      isLogged={isLogged}
-      handleLogout={handleLogout}
-      handleNewAdvertButton={handleNewAdvertButton}
-    >
+    <Layout>
       <div className="container404">
         <h2>Error 404</h2>
         <p>

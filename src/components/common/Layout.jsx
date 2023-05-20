@@ -1,12 +1,15 @@
 import { useLocation, useParams, NavLink, Link } from "react-router-dom";
 import logo from "../../assets/img/node.png";
-import { useState } from "react";
+import { useState, useContext  } from "react";
 import "../../styles/Layout.css";
 import Confirm from "./Confirm";
 import Button from "./Button";
+import { AuthContext } from "../auth/authContext";
 
-function Layout({ isLogged, children, handleNewAdvertButton, handleLogout }) {
+function Layout({children}) {
   const [byeBye, setByeBye] = useState(false);
+
+  const {handleLogout, isLogged} = useContext(AuthContext);
 
   const { id } = useParams();
 

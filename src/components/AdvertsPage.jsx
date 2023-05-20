@@ -6,7 +6,7 @@ import Button from "./common/Button";
 import Layout from "./common/Layout";
 import "../styles/AdvertsPage.css";
 
-function AdvertsPage({ handleLogout, isLogged, handleNewAdvertButton }) {
+function AdvertsPage() {
   const [adverts, setAdverts] = useState([]);
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
   const [auxAdverts, setAuxAdverts] = useState([]);
@@ -64,11 +64,7 @@ function AdvertsPage({ handleLogout, isLogged, handleNewAdvertButton }) {
   const handleReturn = () => setNonFilterAdverts(false);
 
   return (
-    <Layout
-      isLogged={isLogged}
-      handleLogout={handleLogout}
-      handleNewAdvertButton={handleNewAdvertButton}
-    >
+    <Layout>
       {!nonFilterAdverts ? (
         <div className="container AdvertsPage">
           <div className="title-container">
@@ -149,17 +145,18 @@ function AdvertsPage({ handleLogout, isLogged, handleNewAdvertButton }) {
           ) : (
             <div className="nonAdvertsContainer">
               <h3>Todavía no existe ningún anuncio</h3>
-              <Button
-                handleButtonClick={handleNewAdvertButton}
-                title={"Sea usted el primero en publicar"}
-              />
+              <Link to={"/"}>
+                <Button
+                  title={"Sea usted el primero en publicar"}
+                />
+              </Link>
             </div>
           )}
         </div>
       ) : (
         <div className="mismatchContainer">
           <p>Lo sentimos, su búsqueda no ha devuelto ninguna coincidencia</p>
-          <Button handleButtonClick={handleReturn} title={"Volver"} />
+          <button handleButtonClick={handleReturn}>Volver</button>
         </div>
       )}
     </Layout>

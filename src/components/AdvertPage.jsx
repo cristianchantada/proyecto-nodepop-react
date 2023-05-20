@@ -7,7 +7,7 @@ import Button from "./common/Button";
 import Layout from "./common/Layout";
 import "../styles/AdvertPage.css";
 
-function AdvertDetail({ isLogged, handleLogout, handleNewAdvertButton }) {
+function AdvertDetail() {
   const [advert, setAdvert] = useState({});
   const [deleteProcess, setDeleteProcess] = useState(false);
 
@@ -42,11 +42,7 @@ function AdvertDetail({ isLogged, handleLogout, handleNewAdvertButton }) {
   }, [id, navigate]);
 
   return (
-    <Layout
-      isLogged={isLogged}
-      handleLogout={handleLogout}
-      handleNewAdvertButton={handleNewAdvertButton}
-    >
+    <Layout>
       <div className="container detailContainer">
         <h3>
           <span>Se {advert.sale ? "vende" : "compra"}:</span> {advert.name}
@@ -64,7 +60,7 @@ function AdvertDetail({ isLogged, handleLogout, handleNewAdvertButton }) {
         </ul>
         <br />
         {!deleteProcess ? (
-          <Button handleButtonClick={handleDelete} title={"Borrar anuncio"} />
+          <button onClick={handleDelete}>Borrar anuncio</button>
         ) : (
           <Confirm
             handleDefinitive={handleDefinitive}

@@ -5,16 +5,12 @@
 1. Se consigue que en el repositorio el nombre de Button.jsx no figure como button.jsx. ('/src/components/common/Button.jsx').
 2. Se utiliza un error en el interceptor de axios para que, en la página de login, se le de feedback al usuario en el caso de que haya cometido algún error. En LoginPage.jsx ha sido necesario crear un estado de error y he decidido cambiar de promesas a async/await en la petición de los datos al servidor. Se ha realizado el estilo CSS con Chat GPT.
 3. Se utiliza el hook useLocation() en el componente de autenticación (AuthComponent.jsx) junto con la propiedad 'state' en su Navigate para pasárselo a LoginPage y redirigir a la página solicitada por el usuario cuando haga el login.
-4. 
+4. Se crea un contexto para manejar la autenticación: todas las propiedades que han necesitado ser pasadas han salido de app.js y han llegado a Layout.jsx, LoginPage.jsx y AuthComponent.jsx.
 5. 
 6. 
 7. Se inserta en el .then() la redirección a '/' para que para que no se lleve a cabo antes de resolver el borrado
 ('/src/components/AdvertsPage.jsx').
 8. 
-
-
-
-
 
 # Getting Started with Create React App
 
