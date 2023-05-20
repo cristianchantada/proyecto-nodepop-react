@@ -7,10 +7,10 @@
 3. Se utiliza el hook useLocation() en el componente de autenticación (AuthComponent.jsx) junto con la propiedad 'state' en su Navigate para pasárselo a LoginPage y redirigir a la página solicitada por el usuario cuando haga el login.
 4. Se crea un contexto para manejar la autenticación: todas las propiedades que han necesitado ser pasadas han salido de app.js y han llegado a Layout.jsx, LoginPage.jsx y AuthComponent.jsx.
 5. 
-6. 
+6. Los tags pasan de estar harcodeados a traerlos de la API directamente.
 7. Se inserta en el .then() la redirección a '/' para que para que no se lleve a cabo antes de resolver el borrado
 ('/src/components/AdvertsPage.jsx').
-8. Se elimina dos Componentes React innecesarios: Button.jsx y Confirm.jsx (se sustituyen por elementos button y sus onClick's
+8. Se elimina dos Componentes React innecesarios: Button.jsx y Confirm.jsx (se sustituyen por elementos button y sus onClick's respectivos).
 
 # Getting Started with Create React App
 

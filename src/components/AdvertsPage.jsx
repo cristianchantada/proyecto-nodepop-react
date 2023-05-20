@@ -8,17 +8,17 @@ import "../styles/AdvertsPage.css";
 function AdvertsPage() {
   const [adverts, setAdverts] = useState([]);
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
-  const [auxAdverts, setAuxAdverts] = useState([]);
 
   useEffect(() => {
     getAdverts().then((adverts) => {
       setAdverts(adverts);
-      setAuxAdverts(adverts);
     });
   }, []);
 
   const handleFilterSubmit = async (event) => {
     event.preventDefault();
+
+    
 
     getAdverts().then((adverts) => {
       let minPrize = parseFloat(event.target.minPrize.value);
@@ -59,8 +59,6 @@ function AdvertsPage() {
         : setAdverts(filterAdverts);
     });
   };
-
-  const handleReturn = () => setNonFilterAdverts(false);
 
   return (
     <Layout>
@@ -153,7 +151,9 @@ function AdvertsPage() {
       ) : (
         <div className="mismatchContainer">
           <p>Lo sentimos, su búsqueda no ha devuelto ninguna coincidencia</p>
-          <button handleButtonClick={handleReturn}>Volver</button>
+          <Link to={'/'}>
+            <button >Volver</button>
+          </Link>
         </div>
       )}
     </Layout>
