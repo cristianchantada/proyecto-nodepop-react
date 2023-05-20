@@ -58,7 +58,7 @@ function Layout({children}) {
               ) : (
                 <>
                   <p>¿Está seguro de que desea salir?</p>
-                  <button onClick={handleDefinitive}>Borrar definitivamente</button>
+                  <button onClick={handleDefinitive}>Sí</button>
                   <button onClick={handleCancel}>Cancelar</button>
                 </>
               )}

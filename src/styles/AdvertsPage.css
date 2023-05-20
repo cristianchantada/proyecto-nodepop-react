@@ -118,7 +118,8 @@
   margin-left: 20px;
 }
 
-.input-minPrize-container {
+.input-minPrize-container,
+.input-maxPrize-container {
   padding: 15px;
 }
 
@@ -173,4 +174,21 @@
 
 .mismatchContainer * {
   margin: 18px;
+}
+
+.input-minPrize-container input[type="text"],
+.input-maxPrize-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.input-minPrize-container label,
+.input-maxPrize-container label {
+  margin-bottom: 10px;
 }

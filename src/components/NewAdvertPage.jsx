@@ -88,7 +88,7 @@ function NewAdvertPage() {
           </select>
           <label htmlFor="tags">
             Tags:
-            {tags.forEach(tag => {
+            {tags.map(tag => (
               <label htmlFor={tag} id={tag} name={tag}> 
                 <input
                   checked={advData.tags.lifestyle}
@@ -99,7 +99,7 @@ function NewAdvertPage() {
                 />
                 {tag}
               </label>
-            })}
+            ))}
           </label>
           <label htmlFor="price">Precio</label>
           <input
@@ -118,7 +118,7 @@ function NewAdvertPage() {
         </form>
       </div>
     </Layout>
-  );
+  )
 }
 
 export default NewAdvertPage;

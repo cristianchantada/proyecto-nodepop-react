@@ -18,46 +18,43 @@ function AdvertsPage() {
   const handleFilterSubmit = async (event) => {
     event.preventDefault();
 
-    
+    let minPrize = parseFloat(event.target.minPrize.value);
+    let maxPrize = parseFloat(event.target.maxPrize.value);
 
-    getAdverts().then((adverts) => {
-      let minPrize = parseFloat(event.target.minPrize.value);
-      let maxPrize = parseFloat(event.target.maxPrize.value);
+    if (isNaN(minPrize)) {
+      minPrize = 0;
+    }
 
-      if (isNaN(minPrize)) {
-        minPrize = 0;
-      }
+    if (isNaN(maxPrize)) {
+      maxPrize = Infinity;
+    }
 
-      if (isNaN(maxPrize)) {
-        maxPrize = Infinity;
-      }
+    const radioBuy = event.target[2].checked;
+    const radioSell = event.target[3].checked;
+    let operation = null;
 
-      const radioBuy = event.target[2].checked;
-      const radioSell = event.target[3].checked;
-      let operation = null;
+    if (radioBuy) {
+      operation = false;
+    } else if (radioSell) {
+      operation = true;
+    }
 
-      if (radioBuy) {
-        operation = false;
-      } else if (radioSell) {
-        operation = true;
-      }
+    let filterAdverts = adverts.filter(
+      (advert) => advert.price >= minPrize && advert.price <= maxPrize
+    );
 
-      let filterAdverts = adverts.filter(
-        (advert) => advert.price >= minPrize && advert.price <= maxPrize
+    if (operation === true) {
+      filterAdverts = filterAdverts.filter(
+        (advert) => advert.sale === operation
       );
+    } else if (operation === false) {
+      filterAdverts = filterAdverts.filter((advert) => advert.sale === false);
+    }
 
-      if (operation === true) {
-        filterAdverts = filterAdverts.filter(
-          (advert) => advert.sale === operation
-        );
-      } else if (operation === false) {
-        filterAdverts = filterAdverts.filter((advert) => advert.sale === false);
-      }
-
-      filterAdverts.length === 0
-        ? setNonFilterAdverts(true)
-        : setAdverts(filterAdverts);
-    });
+    filterAdverts.length === 0
+      ? setNonFilterAdverts(true)
+      : setAdverts(filterAdverts);
+  
   };
 
   return (
@@ -104,11 +101,11 @@ function AdvertsPage() {
                       <div>
                         <div className="input-minPrize-container">
                           <label htmlFor="minPrize">Precio mínimo: </label>
-                          <input type="text" id="minPrize" name="minPrize" />
+                          <input type="text" pattern="[0-9]+" id="minPrize" name="minPrize"  />
                         </div>
                         <div className="input-maxPrize-container">
                           <label htmlFor="maxPrize">Precio máximo: </label>
-                          <input type="text" id="maxPrize" name="maxPrize" />
+                          <input type="text" pattern="[0-9]+" id="maxPrize" name="maxPrize" />
                         </div>
                       </div>
                     </div>
