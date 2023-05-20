@@ -5,8 +5,8 @@
   justify-content: center;
   background-color: #a0e6a1;
   border-radius: 25px;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: auto;
   box-shadow: 2px 2px 4px grey;
   margin: 20px auto 20px auto;
 }
@@ -33,12 +33,13 @@
 .detailContainer p {
   font-size: 16px;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .detailContainer img {
   border-radius: 25px;
   width: 90%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   margin-top: 10px;
 }

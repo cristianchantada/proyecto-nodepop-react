@@ -42,10 +42,9 @@ function AdvertDetail() {
   return (
     <Layout>
       <div className="container detailContainer">
-        <h3>
-          <span>Se {advert.sale ? "vende" : "compra"}:</span> {advert.name}
-        </h3>
-        <p>{advert.price}</p>
+        <p>{advert.sale ? "Venta" : "Compra"}</p>
+        <h3>{advert.name}</h3>
+        <p> Precio {advert.price} €.</p>
         {advert.photo ? (
           <img src={advert.photo} alt={"fotografía de" + advert.name} />
         ) : (
