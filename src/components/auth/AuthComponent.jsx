@@ -1,10 +1,10 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "./authContext";
+import { getAuth } from "../../reactRedux/selectors";
+import { useSelector } from "react-redux";
 
 function AuthComponent({ children }) {
   const location = useLocation();
-  const {isLogged} = useContext(AuthContext);
+  const isLogged = useSelector(getAuth);
 
   if (!isLogged) {
     return <Navigate to="/login" state={{ from: location }} />;

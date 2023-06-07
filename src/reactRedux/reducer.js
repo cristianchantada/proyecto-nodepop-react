@@ -6,7 +6,7 @@ const defaultState = {
   tags: []
 }
 
-export function auth(state= defaultState.login, action) {
+export function auth(state= defaultState.auth, action) {
   switch(action.type){
     case LOGIN:
       return true;
@@ -17,7 +17,7 @@ export function auth(state= defaultState.login, action) {
 }
 }
 
-export function adverts(state= defaultState.tags, action){
+export function adverts(state= defaultState.adverts, action){
   if(action.type === ADD_ADVERTS){
     return action.payload;
   }
@@ -30,12 +30,4 @@ export function tags(state= defaultState.tags, action){
     return action.payload;
   }
     return state;
-}
-
-export default function combinedReducers(state= defaultState, action){
-  return {
-    auth: auth(state.auth, action),
-    adverts: adverts(state.adverts, action),
-    tags: tags(state.tags, action)
-  }
 }

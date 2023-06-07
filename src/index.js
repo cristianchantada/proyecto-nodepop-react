@@ -13,8 +13,7 @@ if (token) {
   setRequestHeaders(token);
 }
 
-const store = configureStore();
-
+const store = configureStore({auth: !!token});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

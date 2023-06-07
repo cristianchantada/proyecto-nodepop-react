@@ -1,13 +1,16 @@
 import { useLocation, useParams, NavLink, Link } from "react-router-dom";
-import logo from "../../assets/img/node.png";
-import { useState, useContext  } from "react";
-import "../../styles/Layout.css";
+import { getAuth } from "../../reactRedux/selectors";
 import { AuthContext } from "../auth/authContext";
+import { useState, useContext  } from "react";
+import logo from "../../assets/img/node.png";
+import { useSelector } from "react-redux";
+import "../../styles/Layout.css";
 
 function Layout({children}) {
   const [byeBye, setByeBye] = useState(false);
 
-  const {handleLogout, isLogged} = useContext(AuthContext);
+  const {handleLogout} = useContext(AuthContext);
+  const isLogged = useSelector(getAuth);
 
   const { id } = useParams();
 

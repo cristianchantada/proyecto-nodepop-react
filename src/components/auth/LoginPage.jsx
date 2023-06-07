@@ -1,6 +1,6 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { userLogin } from "../../api/service";
 import Layout from "../common/Layout";
-import { useLocation, useNavigate } from "react-router-dom";
 import "../../styles/LoginPage.css";
 import { useState } from "react";
 

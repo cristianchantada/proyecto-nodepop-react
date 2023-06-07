@@ -8,12 +8,12 @@ export const logout = () => ({
     type: LOGOUT
 })
 
-export const tags = () => ({
+export const tags = tags => ({
     type: ADD_TAGS,
-    payload: {}
+    payload: tags
 })
 
-export const adverts = () => ({
+export const adverts = adverts => ({
     type: ADD_ADVERTS,
-    payload: {}
+    payload: adverts
 })

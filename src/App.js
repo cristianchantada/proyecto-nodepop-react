@@ -2,29 +2,28 @@ import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import AuthComponent from "./components/auth/AuthComponent";
 import { AuthContext } from "./components/auth/authContext";
 import NewAdvertPage from "./components/NewAdvertPage";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout } from "./reactRedux/actions";
 import Error404 from "./components/common/Error404";
 import { removeRequestHeaders } from "./api/client";
 import LoginPage from "./components/auth/LoginPage";
 import AdvertDetail from "./components/AdvertPage";
 import AdvertsPage from "./components/AdvertsPage";
-import { login } from "./reactRedux/actions";
-import { useDispatch } from "react-redux";
-import { useState} from "react";
+import { getAuth } from "./reactRedux/selectors";
 import "./App.css";
 
 
-function App({ isToken }) {
+function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const [isLogged, setIsLogged] = useState(isToken);
+  const isLogged = useSelector(getAuth);
 
   const handleLogin = () => {
-    dispatch(login);
+    dispatch(login());
   };
 
   const handleLogout = () => {
-    setIsLogged(false);
+    dispatch(logout());
     removeRequestHeaders();
     navigate("/login");
   };
