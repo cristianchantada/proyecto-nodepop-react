@@ -3,19 +3,26 @@ import { userLogin } from "../../api/service";
 import Layout from "../common/Layout";
 import "../../styles/LoginPage.css";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authLogin, loginFailure, loginRequest, userInterfaceResetError } from "../../reactRedux/actions";
+import { getUserInterface } from "../../reactRedux/selectors";
 
-function LoginPage({ handleLogin }) {
+function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+  const {isLoading, error} = useSelector(getUserInterface);
 
-  const [error, setError] = useState(null);
+/*   const [error, setError] = useState(null); */
 
   const resetError = () => {
-    setError(null);
+    dispatch(userInterfaceResetError())
+
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
 
     resetError();
 
@@ -26,14 +33,9 @@ function LoginPage({ handleLogin }) {
 
     const checked = event.target.checkbox.checked;
 
-    try{
-      await userLogin(credentials, checked);
-      handleLogin();
+      await dispatch(authLogin(credentials, checked));
       const to = location.state?.from?.pathname || '/';
       navigate(to);
-    } catch(error){
-      setError(error);
-    }
   };
 
   return (

@@ -3,7 +3,7 @@ import AuthComponent from "./components/auth/AuthComponent";
 import { AuthContext } from "./components/auth/authContext";
 import NewAdvertPage from "./components/NewAdvertPage";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "./reactRedux/actions";
+import { loginSuccess, logout } from "./reactRedux/actions";
 import Error404 from "./components/common/Error404";
 import { removeRequestHeaders } from "./api/client";
 import LoginPage from "./components/auth/LoginPage";
@@ -18,9 +18,9 @@ function App() {
   const dispatch = useDispatch();
   const isLogged = useSelector(getAuth);
 
-  const handleLogin = () => {
-    dispatch(login());
-  };
+  // const handleLogin = () => {
+  //   dispatch(loginSuccess());
+  // };
 
   const handleLogout = () => {
     dispatch(logout());
