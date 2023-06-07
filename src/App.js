@@ -58,7 +58,7 @@ function App() {
           />
           <Route
             path="/login"
-            element={<LoginPage handleLogin={handleLogin} />}
+            element={<LoginPage />}
           />
           <Route path="/" element={<Navigate to="/adverts" />} />
           <Route

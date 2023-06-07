@@ -1,4 +1,8 @@
+import { getReduxAdverts } from "../reactRedux/selectors";
+import { addAdvertsSuccess } from "../reactRedux/actions";
 import placeholder from "../assets/img/placeholder.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getApiAdverts } from "../reactRedux/actions";
 import React, { useEffect, useState } from "react";
 import { getAdverts } from "../api/service";
 import { Link } from "react-router-dom";
@@ -6,14 +10,15 @@ import Layout from "./common/Layout";
 import "../styles/AdvertsPage.css";
 
 function AdvertsPage() {
-  const [adverts, setAdverts] = useState([]);
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
+  const dispatch = useDispatch();
+  const adverts = useSelector(getReduxAdverts());
 
   useEffect(() => {
     getAdverts().then((adverts) => {
-      setAdverts(adverts);
+      dispatch(getApiAdverts(adverts));
     });
-  }, []);
+  }, [dispatch]);
 
   const handleFilterSubmit = async (event) => {
     event.preventDefault();
@@ -53,7 +58,7 @@ function AdvertsPage() {
 
     filterAdverts.length === 0
       ? setNonFilterAdverts(true)
-      : setAdverts(filterAdverts);
+      : dispatch(addAdvertsSuccess(filterAdverts));
   
   };
 

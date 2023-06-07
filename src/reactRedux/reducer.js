@@ -2,7 +2,11 @@ import { LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS, ADD_ADVERTS_SUCCESS, ADD_T
 
 const defaultState = {
   auth: false,
-  adverts: [],
+  adverts: {
+    areLoaded: false,
+    data: []
+  },
+  //TODO Mirar si cambiar también tags de array a null;
   tags: [],
   userInterface: {
     isLoading: false,
@@ -44,7 +48,7 @@ export function userInterface(state= defaultState.userInterface, action) {
 
 export function adverts(state= defaultState.adverts, action){
   if(action.type === ADD_ADVERTS_SUCCESS){
-    return action.payload;
+    return {areLoaded: true, data: action.payload};
   }
     return state;
 };
