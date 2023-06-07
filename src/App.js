@@ -1,5 +1,6 @@
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import AuthComponent from "./components/auth/AuthComponent";
+import { AuthContext } from "./components/auth/authContext";
 import NewAdvertPage from "./components/NewAdvertPage";
 import Error404 from "./components/common/Error404";
 import { removeRequestHeaders } from "./api/client";
@@ -8,7 +9,6 @@ import AdvertDetail from "./components/AdvertPage";
 import AdvertsPage from "./components/AdvertsPage";
 import { useState} from "react";
 import "./App.css";
-import { AuthContext } from "./components/auth/authContext";
 
 function App({ isToken }) {
   const navigate = useNavigate();
