@@ -28,9 +28,9 @@ function LoginPage({ handleLogin }) {
 
     try{
       await userLogin(credentials, checked);
-        handleLogin();
-        const to = location.state?.from?.pathname || '/';
-        navigate(to);
+      handleLogin();
+      const to = location.state?.from?.pathname || '/';
+      navigate(to);
     } catch(error){
       setError(error);
     }

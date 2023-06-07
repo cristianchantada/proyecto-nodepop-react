@@ -7,16 +7,20 @@ import { removeRequestHeaders } from "./api/client";
 import LoginPage from "./components/auth/LoginPage";
 import AdvertDetail from "./components/AdvertPage";
 import AdvertsPage from "./components/AdvertsPage";
+import { login } from "./reactRedux/actions";
+import { useDispatch } from "react-redux";
 import { useState} from "react";
 import "./App.css";
 
+
 function App({ isToken }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [isLogged, setIsLogged] = useState(isToken);
 
   const handleLogin = () => {
-    setIsLogged(true);
+    dispatch(login);
   };
 
   const handleLogout = () => {
