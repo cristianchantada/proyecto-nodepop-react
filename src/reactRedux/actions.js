@@ -1,7 +1,5 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, ADD_ADVERTS_REQUEST, ADD_TAGS_REQUEST, ADD_ADVERTS_SUCCESS, ADD_ADVERTS_FAILURE, ADD_TAGS_FAILURE, ADD_TAGS_SUCCESS, ADD_ONE_ADVERT_REQUEST, ADD_ONE_ADVERT_SUCCESS, ADD_ONE_ADVERT_FAILURE, USER_INTERFACE_RESET_ERROR } from "./actionTypes";
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, ADD_ADVERTS_REQUEST, ADD_TAGS_REQUEST, ADD_ADVERTS_SUCCESS, ADD_ADVERTS_FAILURE, ADD_TAGS_FAILURE, ADD_TAGS_SUCCESS, ADD_ONE_ADVERT_REQUEST, ADD_ONE_ADVERT_SUCCESS, ADD_ONE_ADVERT_FAILURE, USER_INTERFACE_RESET_ERROR, ADVERT_CREATED_SUCCESS, ADVERT_DELETED_SUCCESS, ADVERT_CREATED_REQUEST, ADVERT_CREATED_FAILURE } from "./actionTypes";
 import { areAdvertsLoaded, getReduxAdvertID } from "./selectors";
-import { adverts } from "./reducer";
-
 
 export const loginRequest = () => ({
   type: LOGIN_REQUEST
@@ -87,7 +85,6 @@ export const getApiAdvDetail = advertId => async(dispatch, getState, {api: {serv
     dispatch(addOneAdvertFailure(error));
     throw error;
   }
-
 }
 
 export const addOneAdvertRequest = () => ({
@@ -104,3 +101,34 @@ export const addOneAdvertFailure = error => ({
   error: true,
   payload: error,
 });
+
+//TODO falta implementar el error, request, successs
+
+export const advertCreated = advert => async(dispatch, _getState, {api: {services}}) => {
+  dispatch(advertCreatedRequest());
+  try {
+    const createdAdvert = await services.postAdv(advert);
+    dispatch(advertCreatedSuccess(createdAdvert));
+    return createdAdvert;
+
+  } catch (error) {
+    dispatch(advertCreatedFailure(error));
+    throw error;
+  }
+}
+
+export const advertCreatedSuccess = advert => ({
+  type: ADVERT_CREATED_SUCCESS,
+  payload: advert 
+})
+
+export const advertCreatedRequest = () => ({
+  type: ADVERT_CREATED_REQUEST,
+})
+
+export const advertCreatedFailure = error => ({
+  type: ADVERT_CREATED_FAILURE,
+  payload: error,
+  error: true 
+})
+

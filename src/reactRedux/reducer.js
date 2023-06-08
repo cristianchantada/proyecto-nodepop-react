@@ -1,4 +1,4 @@
-import { ADD_ONE_ADVERT_SUCCESS, LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS, ADD_ADVERTS_SUCCESS, ADD_TAGS_SUCCESS, LOGOUT, USER_INTERFACE_RESET_ERROR } from "./actionTypes";
+import { ADD_ONE_ADVERT_SUCCESS, LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS, ADD_ADVERTS_SUCCESS, ADD_TAGS_SUCCESS, LOGOUT, USER_INTERFACE_RESET_ERROR, ADVERT_CREATED_SUCCESS, ADVERT_DELETED_SUCCESS } from "./actionTypes";
 
 const defaultState = {
   auth: false,
@@ -52,6 +52,18 @@ export function adverts(state= defaultState.adverts, action){
   }
   if(action.type === ADD_ONE_ADVERT_SUCCESS ){
     return {...state, data: [action.payload]}
+  }
+  if(action.type === ADVERT_CREATED_SUCCESS){
+    return {...state, data: [action.payload, ...state.data]}
+  }
+
+  // TODO Borrar un anuncio. Definir el estado aquí abajo y falta la acción:
+  // usar el .filter, filtrando por el id, y devolver filtrados todos menos el que tiene ese id. Mirar clase 4 a 01hora20 min.
+  // Dice que habrá que meter un id dentro del payload.
+  // acción que el payload fuera el id.
+
+  if(action.type === ADVERT_DELETED_SUCCESS){
+
   }
     return state;
 };

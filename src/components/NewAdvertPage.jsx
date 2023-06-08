@@ -1,18 +1,24 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { postAdv } from "../api/service";
 import { getTags } from "../api/service";
 import Layout from "./common/Layout";
 import "../styles/NewAdvertPage.css";
+import { useDispatch, useSelector } from "react-redux";
+import { advertCreated } from "../reactRedux/actions";
+import { getUserInterface } from "../reactRedux/selectors";
 
 function NewAdvertPage() {
-  const [advData, setAdvData] = useState({
+/*   const [advData, setAdvData] = useState({
     name: "",
     sale: false,
     price: "",
     tags: [],
     photo: null,
-  });
+  }); */
+
+  const dispatch = useDispatch();
+  const {isLoading} = useSelector(getUserInterface)
+
 
   const [tags, setTags] = useState([]);
 
@@ -53,9 +59,20 @@ function NewAdvertPage() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    postAdv(advData).then((response) => navigate(`/adverts/${response.id}`));
+
+    try {
+      const createdAdvert = await dispatch(advertCreated(advData));
+      navigate(`/adverts/${createdAdvert.id}`)
+
+    } catch (error){
+
+      if(error.status === 401) { 
+        navigate('/login');
+      }
+
+    }
   };
 
   const buttonDisabled =
