@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS, ADD_ADVERTS_SUCCESS, ADD_TAGS_SUCCESS, LOGOUT, USER_INTERFACE_RESET_ERROR } from "./actionTypes";
+import { ADD_ONE_ADVERT_SUCCESS, LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS, ADD_ADVERTS_SUCCESS, ADD_TAGS_SUCCESS, LOGOUT, USER_INTERFACE_RESET_ERROR } from "./actionTypes";
 
 const defaultState = {
   auth: false,
@@ -50,9 +50,11 @@ export function adverts(state= defaultState.adverts, action){
   if(action.type === ADD_ADVERTS_SUCCESS){
     return {areLoaded: true, data: action.payload};
   }
+  if(action.type === ADD_ONE_ADVERT_SUCCESS ){
+    return {...state, data: [action.payload]}
+  }
     return state;
 };
-
 
 export function tags(state= defaultState.tags, action){
   if(action.type === ADD_TAGS_SUCCESS){

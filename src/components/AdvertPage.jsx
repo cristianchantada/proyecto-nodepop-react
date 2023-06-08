@@ -1,19 +1,21 @@
 import { getReduxAdvertID } from "../reactRedux/selectors";
 import { useNavigate, useParams } from "react-router-dom";
 import placeholder from "../assets/img/placeholder.png";
-import { deleteAdv, getAdv } from "../api/service";
+import { deleteAdv } from "../api/service";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Layout from "./common/Layout";
 import "../styles/AdvertPage.css";
-
+import { getApiAdvDetail } from "../reactRedux/actions";
 
 function AdvertDetail() {
   const [deleteProcess, setDeleteProcess] = useState(false);
+  const dispatch = useDispatch
 
   const navigate = useNavigate();
   const { id } = useParams();
   const advert = useSelector(getReduxAdvertID(id));
+  
 
   const handleDelete = () => {
     setDeleteProcess(true);
@@ -30,17 +32,14 @@ function AdvertDetail() {
     setDeleteProcess(false);
   };
 
-/*   useEffect(() => {
-    getAdv(id)
-      .then((advert) => {
-        setAdvert(advert);
-      })
+  useEffect(() => {
+    dispatch(getApiAdvDetail(id))
       .catch((error) => {
         if (error.response.status === 404) {
           return navigate("/404");
         }
       });
-  }, [id, navigate]); */
+  }, [dispatch, id, navigate]);
 
   return (
     <Layout>
