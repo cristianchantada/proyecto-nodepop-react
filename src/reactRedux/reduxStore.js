@@ -10,9 +10,9 @@ const composeEnhancers = composeWithDevTools({
 });
 
 const reducer = combineReducers(reducers);
-const middleware = [thunk.withExtraArgument({api: {services}})]
 
-export default function configureStore(preloadedState){
+export default function configureStore(preloadedState, {router}){
+  const middleware = [thunk.withExtraArgument({api: services, router})]
   const store = createStore(reducer, preloadedState, composeEnhancers(applyMiddleware(...middleware)));
   return store;
 }

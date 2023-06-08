@@ -1,14 +1,12 @@
 import { authLogin, loginFailure, loginRequest, userInterfaceResetError } from "../../reactRedux/actions";
 import { getUserInterface } from "../../reactRedux/selectors";
-import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../common/Layout";
 import "../../styles/LoginPage.css";
 
 
 function LoginPage() {
-  const navigate = useNavigate();
-  const location = useLocation();
+
   const dispatch = useDispatch();
   const {isLoading, error} = useSelector(getUserInterface);
 
@@ -25,16 +23,12 @@ function LoginPage() {
     resetError();
     const credentials = {
       email: event.target.username.value,
-      password: event.target.password.value,
+      password: event.target.password.value
     };
 
     const checked = event.target.checkbox.checked;
+    dispatch(authLogin(credentials, checked));
 
-      dispatch(authLogin(credentials, checked))
-        .then( () => {
-          const to = location.state?.from?.pathname || '/';
-          navigate(to);
-        })
   };
 
   return (

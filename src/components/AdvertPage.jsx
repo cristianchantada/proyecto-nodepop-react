@@ -23,7 +23,9 @@ function AdvertDetail() {
 
   const handleDefinitive = () => {
     deleteAdv(id).then(()=> {
-      alert("El anuncio ha sido borrado correctamente")
+      alert("El anuncio ha sido borrado correctamente");
+
+      //TODO falta inyectar el router para hacer un reouter.navigate y no depender del useNavigate();
       navigate("/");
     });
   };
@@ -34,12 +36,7 @@ function AdvertDetail() {
 
   useEffect(() => {
     dispatch(getApiAdvDetail(id))
-      .catch((error) => {
-        if (error.response.status === 404) {
-          return navigate("/404");
-        }
-      });
-  }, [dispatch, id, navigate]);
+  }, [dispatch, id]);
 
   return (
     <Layout>

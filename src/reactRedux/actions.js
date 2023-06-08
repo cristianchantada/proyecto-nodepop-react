@@ -58,19 +58,20 @@ export const getApiAdverts = () => async (dispatch, getState, {api: {services}})
   }
 };
 
-export const authLogin = (credentials, checked) => async (dispatch, _getState, {api: {services}}) => {
+export const authLogin = (credentials, checked) => async (dispatch, _getState, {api: {services}, router}) => {
     
   dispatch(loginRequest());
   try{
     await services.userLogin(credentials, checked);
-      dispatch(loginSuccess())
+      dispatch(loginSuccess());
+      const to = router.state.location.state?.from?.pathname || '/';
+      router.navigate(to);
   } catch(error){
     dispatch(loginFailure(error));
-    throw error;
   }
 }
 
-export const getApiAdvDetail = advertId => async(dispatch, getState, {api: {services}}) => {
+export const getApiAdvDetail = advertId => async(dispatch, getState, {api: {services}, router}) => {
 
   const isAdvert = getReduxAdvertID(advertId)(getState);
   if(isAdvert){
@@ -83,7 +84,9 @@ export const getApiAdvDetail = advertId => async(dispatch, getState, {api: {serv
     dispatch(addOneAdvertSuccess);
   } catch (error) {
     dispatch(addOneAdvertFailure(error));
-    throw error;
+    if (error.response.status === 404) {
+      return router.navigate("/404");
+    }
   }
 }
 
@@ -104,16 +107,19 @@ export const addOneAdvertFailure = error => ({
 
 //TODO falta implementar el error, request, successs
 
-export const advertCreated = advert => async(dispatch, _getState, {api: {services}}) => {
+export const advertCreated = advert => async(dispatch, _getState, {api: services, router}) => {
   dispatch(advertCreatedRequest());
   try {
     const createdAdvert = await services.postAdv(advert);
     dispatch(advertCreatedSuccess(createdAdvert));
+    router.navigate(`/adverts/${createdAdvert.id}`)
     return createdAdvert;
 
   } catch (error) {
     dispatch(advertCreatedFailure(error));
-    throw error;
+    if(error.status === 401) { 
+      router.navigate('/login');
+    }
   }
 }
 

@@ -61,18 +61,7 @@ function NewAdvertPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    try {
-      const createdAdvert = await dispatch(advertCreated(advData));
-      navigate(`/adverts/${createdAdvert.id}`)
-
-    } catch (error){
-
-      if(error.status === 401) { 
-        navigate('/login');
-      }
-
-    }
+    dispatch(advertCreated(advData));
   };
 
   const buttonDisabled =

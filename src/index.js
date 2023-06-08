@@ -1,6 +1,6 @@
 import configureStore from "./reactRedux/reduxStore";
 import { setRequestHeaders } from "./api/client";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import React from "react";
@@ -13,15 +13,21 @@ if (token) {
   setRequestHeaders(token);
 }
 
-const store = configureStore({auth: !!token});
+const router = createBrowserRouter([{
+  path: '*',
+  element: <App />
+}]);
+const store = configureStore({auth: !!token}, {router});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}> 
-      <BrowserRouter>
+      <RouterProvider router={router}>
         <App isToken={!!token} />
-      </BrowserRouter>
+      </RouterProvider>
     </Provider>
   </React.StrictMode>
 );
+
+//TODO Mirar si arriba puedo quitar <App /> porque Router Provider ya renderiza lo que le metamos por elemento a createBrowserRouter;
