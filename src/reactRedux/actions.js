@@ -60,7 +60,7 @@ export const addAdvertsFailure = error => ({
 
 export const getApiAdverts = () => async (dispatch, getState) => {
 
-  if(areAdvertsLoaded(getState)){
+  if(areAdvertsLoaded(getState())){
     return;
   }
 

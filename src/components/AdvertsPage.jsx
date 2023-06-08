@@ -12,7 +12,7 @@ import "../styles/AdvertsPage.css";
 function AdvertsPage() {
   const [nonFilterAdverts, setNonFilterAdverts] = useState(false);
   const dispatch = useDispatch();
-  const adverts = useSelector(getReduxAdverts());
+  const adverts = useSelector(getReduxAdverts);
 
   useEffect(() => {
     getAdverts().then((adverts) => {

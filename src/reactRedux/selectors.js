@@ -5,10 +5,8 @@ export const getReduxAdverts = state => state.adverts.data;
 
 export const getReduxTags = state => state.tags;
 
-export const getReduxAdvertID = advertId => state => {
-    getReduxAdverts(state).find(state => state.id === +advertId);
-};
+export const getReduxAdvertID = advertId => state => getReduxAdverts(state).find(advert => advert.id === advertId);
 
-export const getUserInterface = state => state.ui;
+export const getUserInterface = state => state.userInterface;
 
 export const areAdvertsLoaded = state => state.adverts.areLoaded;

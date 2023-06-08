@@ -12,7 +12,6 @@ function AdvertDetail() {
 /*   const [, setAdvert] = useState({}); */
   const [deleteProcess, setDeleteProcess] = useState(false);
 
-  
   const navigate = useNavigate();
   const { id } = useParams();
   const advert = useSelector(getReduxAdvertID(id));

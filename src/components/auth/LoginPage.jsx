@@ -2,10 +2,9 @@ import { authLogin, loginFailure, loginRequest, userInterfaceResetError } from "
 import { getUserInterface } from "../../reactRedux/selectors";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { userLogin } from "../../api/service";
 import Layout from "../common/Layout";
 import "../../styles/LoginPage.css";
-import { useState } from "react";
+
 
 function LoginPage() {
   const navigate = useNavigate();
