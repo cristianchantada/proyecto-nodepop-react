@@ -9,7 +9,6 @@ import "../styles/AdvertPage.css";
 
 
 function AdvertDetail() {
-/*   const [, setAdvert] = useState({}); */
   const [deleteProcess, setDeleteProcess] = useState(false);
 
   const navigate = useNavigate();

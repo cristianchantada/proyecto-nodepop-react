@@ -1,7 +1,5 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, ADD_ADVERTS_REQUEST, ADD_TAGS_REQUEST, ADD_ADVERTS_SUCCESS, ADD_ADVERTS_FAILURE, ADD_TAGS_FAILURE, ADD_TAGS_SUCCESS, ADD_ONE_ADVERT_REQUEST, ADD_ONE_ADVERT_SUCCESS, ADD_ONE_ADVERT_FAILURE, USER_INTERFACE_RESET_ERROR } from "./actionTypes";
 import { areAdvertsLoaded } from "./selectors";
-import { getAdverts } from "../api/service";
-import { userLogin } from "../api/service";
 import { adverts } from "./reducer";
 
 
@@ -19,10 +17,11 @@ export const loginFailure = error => ({
   payload: error
 });
 
-export const authLogin = (credentials, checked) => async dispatch => {
+export const authLogin = (credentials, checked) => async (dispatch, _getState, {api: {services}}) => {
+    
     dispatch(loginRequest());
     try{
-      await userLogin(credentials, checked);
+      await services.userLogin(credentials, checked);
         dispatch(loginSuccess())
     } catch(error){
       dispatch(loginFailure(error));
@@ -58,7 +57,7 @@ export const addAdvertsFailure = error => ({
   payload: error,
 });
 
-export const getApiAdverts = () => async (dispatch, getState) => {
+export const getApiAdverts = () => async (dispatch, getState, {api: {services}}) => {
 
   if(areAdvertsLoaded(getState())){
     return;
@@ -66,7 +65,7 @@ export const getApiAdverts = () => async (dispatch, getState) => {
 
   dispatch(addAdvertsRequire);
   try {
-    const adverts = await getAdverts();
+    const adverts = await services.getAdverts();
     dispatch(addAdvertsSuccess(adverts));
   } catch (error) {
     dispatch(addAdvertsFailure(error));

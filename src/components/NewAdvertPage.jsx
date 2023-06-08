@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { postAdv } from "../api/service";
+import { getTags } from "../api/service";
 import Layout from "./common/Layout";
 import "../styles/NewAdvertPage.css";
-import { useState, useEffect } from "react";
-import { getTags } from "../api/service";
 
 function NewAdvertPage() {
   const [advData, setAdvData] = useState({
