@@ -15,7 +15,7 @@ function AdvertsPage() {
 
   useEffect(() => {
       dispatch(getApiAdverts(adverts));
-  }, [dispatch]);
+  }, [dispatch, adverts]);
 
   const handleFilterSubmit = async (event) => {
     event.preventDefault();
@@ -56,8 +56,7 @@ function AdvertsPage() {
     filterAdverts.length === 0
       ? setNonFilterAdverts(true)
       : dispatch(addAdvertsSuccess(filterAdverts));
-      /* : setAdverts(filterAdverts); */
-
+      
   };
 
   return (

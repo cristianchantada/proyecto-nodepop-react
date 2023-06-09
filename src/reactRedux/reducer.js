@@ -6,7 +6,6 @@ const defaultState = {
     areLoaded: false,
     data: []
   },
-  //TODO Mirar si cambiar también tags de array a null;
   tags: [],
   userInterface: {
     isLoading: false,
@@ -57,15 +56,10 @@ export function adverts(state= defaultState.adverts, action){
     return {...state, data: [action.payload, ...state.data]}
   }
 
-  // TODO Borrar un anuncio. Definir el estado aquí abajo y falta la acción:
-  // usar el .filter, filtrando por el id, y devolver filtrados todos menos el que tiene ese id. Mirar clase 4 a 01hora20 min.
-  // Dice que habrá que meter un id dentro del payload.
-  // acción que el payload fuera el id.
-
   if(action.type === ADVERT_DELETED_SUCCESS){
-
-  }
-    return state;
+    return {...state, data: state.data.filter(advert => advert.id !== action.payload)}
+  } 
+  return state;
 };
 
 export function tags(state= defaultState.tags, action){

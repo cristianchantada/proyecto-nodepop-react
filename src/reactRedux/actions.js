@@ -138,7 +138,7 @@ export const deleteApiAdv = advId => async (dispatch, _getState, {api: services,
   try {
     await services.deleteAdv(advId);
     alert("El anuncio ha sido borrado correctamente");
-    dispatch(advDeleteSuccess());
+    dispatch(advDeleteSuccess(advId));
     router.navigate('/');
   } catch (error) {
     dispatch(advDeleteFailure(error))
@@ -149,8 +149,9 @@ export const advDeleteRequest = () => ({
   type: ADVERT_DELETED_REQUEST
 });
 
-export const advDeleteSuccess = () => ({
-  type: ADVERT_DELETED_SUCCESS
+export const advDeleteSuccess = advId => ({
+  type: ADVERT_DELETED_SUCCESS,
+  payload: advId
 });
 
 export const advDeleteFailure = error => ({

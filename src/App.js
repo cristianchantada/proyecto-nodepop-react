@@ -3,9 +3,7 @@ import AuthComponent from "./components/auth/AuthComponent";
 import { AuthContext } from "./components/auth/authContext";
 import NewAdvertPage from "./components/NewAdvertPage";
 import { useDispatch, useSelector } from "react-redux";
-import { loginSuccess, logout } from "./reactRedux/actions";
 import Error404 from "./components/common/Error404";
-import { removeRequestHeaders } from "./api/client";
 import LoginPage from "./components/auth/LoginPage";
 import AdvertDetail from "./components/AdvertPage";
 import AdvertsPage from "./components/AdvertsPage";
@@ -14,23 +12,11 @@ import "./App.css";
 
 
 function App() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const isLogged = useSelector(getAuth);
-
-  // const handleLogin = () => {
-  //   dispatch(loginSuccess());
-  // };
-
-  const handleLogout = () => {
-    dispatch(logout());
-    removeRequestHeaders();
-    navigate("/login");
-  };
-
+  
   return (
     <div className="App">
-      <AuthContext.Provider value={{handleLogout, isLogged}}>
+      <AuthContext.Provider value={{isLogged}}>
         <Routes>
           <Route
             path="/adverts"

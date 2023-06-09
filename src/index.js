@@ -29,5 +29,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-//TODO Mirar si arriba puedo quitar <App /> porque Router Provider ya renderiza lo que le metamos por elemento a createBrowserRouter;
