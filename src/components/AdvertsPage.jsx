@@ -15,9 +15,10 @@ function AdvertsPage() {
 
   useEffect(() => {
       dispatch(getApiAdverts(adverts));
-  }, [dispatch, adverts]);
+      console.log('render');
+  }, [dispatch]);
 
-  const handleFilterSubmit = async (event) => {
+  const handleFilterSubmit = event => {
     event.preventDefault();
 
     let minPrize = parseFloat(event.target.minPrize.value);

@@ -1,8 +1,8 @@
 
 export const getAuth = state => state.auth;
 
-export const getReduxAdverts = state =>{
-    return state.adverts.data 
+export const getReduxAdverts = state => {
+    return state.adverts.data; 
 } 
  
 export const getReduxTags = state => state.tags;

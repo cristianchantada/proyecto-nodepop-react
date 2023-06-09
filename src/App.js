@@ -1,22 +1,16 @@
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import AuthComponent from "./components/auth/AuthComponent";
-import { AuthContext } from "./components/auth/authContext";
 import NewAdvertPage from "./components/NewAdvertPage";
-import { useDispatch, useSelector } from "react-redux";
 import Error404 from "./components/common/Error404";
 import LoginPage from "./components/auth/LoginPage";
 import AdvertDetail from "./components/AdvertPage";
 import AdvertsPage from "./components/AdvertsPage";
-import { getAuth } from "./reactRedux/selectors";
 import "./App.css";
 
 
 function App() {
-  const isLogged = useSelector(getAuth);
-  
   return (
     <div className="App">
-      <AuthContext.Provider value={{isLogged}}>
         <Routes>
           <Route
             path="/adverts"
@@ -55,7 +49,6 @@ function App() {
           />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
-      </AuthContext.Provider>
     </div>
   );
 }

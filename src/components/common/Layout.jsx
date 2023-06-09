@@ -1,18 +1,15 @@
-import { useLocation, useParams, NavLink, Link, useNavigate } from "react-router-dom";
-import { getAuth } from "../../reactRedux/selectors";
-import { useState} from "react";
-import { logout } from "../../reactRedux/actions";
-import logo from "../../assets/img/node.png";
+import { useLocation, useParams, NavLink, Link} from "react-router-dom";
+import { logoutThunk } from "../../reactRedux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { getAuth } from "../../reactRedux/selectors";
+import logo from "../../assets/img/node.png";
 import "../../styles/Layout.css";
-import { removeRequestHeaders } from "../../api/client";
+import { useState} from "react";
 
 function Layout({children}) {
   const [byeBye, setByeBye] = useState(false);
-
   const isLogged = useSelector(getAuth);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -21,9 +18,7 @@ function Layout({children}) {
   };
 
   const handleDefinitive = () => {
-    dispatch(logout());
-    removeRequestHeaders();
-    navigate("/login");
+    dispatch(logoutThunk());
   };
 
   const handleCancel = () => {

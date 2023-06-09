@@ -3,7 +3,7 @@ import { getReduxAdvertID } from "./selectors";
 
 // LOGIN actions & thunk:
 
-export const authLogin = (credentials, checked) => async (dispatch, _getState, {api: services, router}) => {
+export const authLogin = (credentials, checked) => async (dispatch, _getState, {api: {services}, router}) => {
     
   dispatch(loginRequest());
   try{
@@ -34,9 +34,15 @@ export const logout = () => ({
   type: LOGOUT
 });
 
+export const logoutThunk = () => (dispatch, _getState, {api: {client}, router}) => {
+  dispatch(logout());
+  client.removeRequestHeaders();
+  router.navigate("/login");
+}
+
 // get ADVERTS from API; thunk & actions:
 
-export const getApiAdverts = () => async (dispatch, _getState, {api: services}) => {
+export const getApiAdverts = () => async (dispatch, _getState, {api: {services}}) => {
 
   dispatch(addAdvertsRequire);
   try {
@@ -66,12 +72,15 @@ export const addAdvertsFailure = error => ({
 
 export const getApiAdvDetail = advertId => async(dispatch, getState, {api: {services}, router}) => {
 
-  const isAdvert = getReduxAdvertID(advertId)(getState);
+  const isAdvert = getReduxAdvertID(advertId)(getState());
+  console.log('pasa');
+  dispatch(addOneAdvertRequest());
+  
   if(isAdvert){
+    dispatch(addOneAdvertSuccess(isAdvert))
     return;
   }
 
-  dispatch(addOneAdvertRequest);
   try {
     const advert = await services.getAdv(advertId);
     dispatch(addOneAdvertSuccess(advert));
@@ -100,10 +109,11 @@ export const addOneAdvertFailure = error => ({
 
 // Create advert actions and thunk:
 
-export const advertCreated = advert => async(dispatch, _getState, {api: services, router}) => {
+export const advertCreated = advert => async(dispatch, _getState, {api: {services}, router}) => {
   dispatch(advertCreatedRequest());
   try {
     const createdAdvert = await services.postAdv(advert);
+    console.log(createdAdvert);
     dispatch(advertCreatedSuccess(createdAdvert));
     router.navigate(`/adverts/${createdAdvert.id}`)
     return createdAdvert;
@@ -133,7 +143,7 @@ export const advertCreatedFailure = error => ({
 
 // Delete adv from API actions & thunks:
 
-export const deleteApiAdv = advId => async (dispatch, _getState, {api: services, router}) => {
+export const deleteApiAdv = advId => async (dispatch, _getState, {api: {services}, router}) => {
   dispatch(advDeleteRequest());
   try {
     await services.deleteAdv(advId);
@@ -162,7 +172,7 @@ export const advDeleteFailure = error => ({
 
 // Get tags from API actions & thunk:
 
-export const getApiTags = () => async (dispatch, _getState, {api: services}) => {
+export const getApiTags = () => async (dispatch, _getState, {api: {services}}) => {
   dispatch(tagRequire());
   try {
     const tags = await services.getTags();
