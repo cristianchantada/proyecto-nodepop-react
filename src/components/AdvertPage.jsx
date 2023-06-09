@@ -1,33 +1,24 @@
+import { deleteApiAdv, getApiAdvDetail } from "../reactRedux/actions";
 import { getReduxAdvertID } from "../reactRedux/selectors";
-import { useNavigate, useParams } from "react-router-dom";
 import placeholder from "../assets/img/placeholder.png";
-import { deleteAdv } from "../api/service";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Layout from "./common/Layout";
 import "../styles/AdvertPage.css";
-import { getApiAdvDetail } from "../reactRedux/actions";
 
 function AdvertDetail() {
   const [deleteProcess, setDeleteProcess] = useState(false);
-  const dispatch = useDispatch
-
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { id } = useParams();
   const advert = useSelector(getReduxAdvertID(id));
-  
 
   const handleDelete = () => {
     setDeleteProcess(true);
   };
 
   const handleDefinitive = () => {
-    deleteAdv(id).then(()=> {
-      alert("El anuncio ha sido borrado correctamente");
-
-      //TODO falta inyectar el router para hacer un reouter.navigate y no depender del useNavigate();
-      navigate("/");
-    });
+    dispatch(deleteApiAdv(id));
   };
 
   const handleCancel = () => {

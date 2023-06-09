@@ -1,37 +1,29 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getTags } from "../api/service";
 import Layout from "./common/Layout";
 import "../styles/NewAdvertPage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { advertCreated } from "../reactRedux/actions";
-import { getUserInterface } from "../reactRedux/selectors";
+import { advertCreated, getApiTags } from "../reactRedux/actions";
+import { getReduxTags} from "../reactRedux/selectors";
 
 function NewAdvertPage() {
-/*   const [advData, setAdvData] = useState({
+  const [advData, setAdvData] = useState({
     name: "",
     sale: false,
     price: "",
     tags: [],
     photo: null,
-  }); */
+  });
 
   const dispatch = useDispatch();
-  const {isLoading} = useSelector(getUserInterface)
-
-
-  const [tags, setTags] = useState([]);
+  const tags = useSelector(getReduxTags);
 
   useEffect(()=> {
-    getTags().then((tags) => {
-      setTags(tags);
-    });
-  }, []);
-
-  const navigate = useNavigate();
+      dispatch(getApiTags());
+  }, [dispatch]);
 
   const handleChange = (event) => {
     if (event.target.name === "name") {
+
       setAdvData({ ...advData, name: event.target.value });
     }
     if (event.target.name === "sale") {
