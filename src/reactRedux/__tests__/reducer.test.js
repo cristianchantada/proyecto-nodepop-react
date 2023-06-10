@@ -1,4 +1,4 @@
-import { defaultState, adverts, auth } from '../reducer';
+import { defaultState, adverts, auth, userInterface } from '../reducer';
 import {loginSuccess, loginFailure, addAdvertsSuccess, addOneAdvertFailure, advertCreatedSuccess} from '../actions'
 
 describe('Testing React Redux Reducer', () =>{
@@ -22,20 +22,23 @@ describe('Testing React Redux Reducer', () =>{
     const stateAdverts = defaultState.adverts;
 
     it('should manage "ADD_ADVERTS_SUCCESS" action', () => {
-      const adverts = [];
-      const action = addAdvertsSuccess(adverts);
-      expect(adverts(stateAdverts, action)).toEqual(adverts);
+      const advertsArray = [{},{}];
+      const action = addAdvertsSuccess(advertsArray);
+      expect(adverts(stateAdverts, action)).toEqual({areLoaded: true, data: advertsArray});
     });
 
     it('should manage "ADD_ONE_ADVERT_FAILURE" action', () => {
-
+      const stateUserInterface = defaultState.userInterface;
+      const error = 'error';
+      const action = addOneAdvertFailure(error);
+      expect(userInterface(stateUserInterface, action)).toEqual({isLoading: false, error: error});
     });
 
     it('should manage "ADVERT_CREATED_SUCCESS" action', () => {
 
+      const advert = {advert: 'advert'};
+      const action = advertCreatedSuccess(advert);
+      expect(adverts(stateAdverts, action)).toEqual({...stateAdverts, data: [advert, ...stateAdverts.data]})
     });
-
-
   });
-  
 });
