@@ -1,6 +1,6 @@
 import { ADD_ONE_ADVERT_SUCCESS, LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS, ADD_ADVERTS_SUCCESS, ADD_TAGS_SUCCESS, LOGOUT, USER_INTERFACE_RESET_ERROR, ADVERT_CREATED_SUCCESS, ADVERT_DELETED_SUCCESS } from "./actionTypes";
 
-const defaultState = {
+export const defaultState = {
   auth: false,
   adverts: {
     areLoaded: false,

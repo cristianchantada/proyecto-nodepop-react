@@ -1,6 +1,8 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, ADD_ADVERTS_REQUEST, ADD_TAGS_REQUEST, ADD_ADVERTS_SUCCESS, ADD_ADVERTS_FAILURE, ADD_TAGS_FAILURE, ADD_TAGS_SUCCESS, ADD_ONE_ADVERT_REQUEST, ADD_ONE_ADVERT_SUCCESS, ADD_ONE_ADVERT_FAILURE, USER_INTERFACE_RESET_ERROR, ADVERT_CREATED_SUCCESS, ADVERT_CREATED_REQUEST, ADVERT_CREATED_FAILURE, ADVERT_DELETED_SUCCESS, ADVERT_DELETED_FAILURE, ADVERT_DELETED_REQUEST } from "./actionTypes";
 import { getReduxAdvertID } from "./selectors";
 
+// TODO hacer logouts request, success y failure si procede.
+
 // LOGIN actions & thunk:
 
 export const authLogin = (credentials, checked) => async (dispatch, _getState, {api: {services}, router}) => {
@@ -73,7 +75,6 @@ export const addAdvertsFailure = error => ({
 export const getApiAdvDetail = advertId => async(dispatch, getState, {api: {services}, router}) => {
 
   const isAdvert = getReduxAdvertID(advertId)(getState());
-  console.log('pasa');
   dispatch(addOneAdvertRequest());
   
   if(isAdvert){
