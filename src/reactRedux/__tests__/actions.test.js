@@ -1,4 +1,4 @@
-import { addAdvertsSuccess, loginFailure, authLogin, loginRequest, loginSuccess } from "../actions";
+import { addAdvertsSuccess, loginFailure, authLogin, loginRequest, loginSuccess, addAdvertsRequire, getApiAdverts, addAdvertsFailure } from "../actions";
 import { ADD_ADVERTS_SUCCESS, LOGIN_FAILURE } from "../actionTypes";
 
 describe('testing React Redux actions', () =>{
@@ -25,8 +25,14 @@ describe('testing React Redux actions', () =>{
         expect(loginFailure(errorPayloadValue)).toEqual(action);
       });
     });
-
+  });
+  
   describe('testing ASYNC actions', () => {
+
+    const dispatch = jest.fn();
+    const getState = jest.fn();
+    const services = {};
+
     describe('"authLogin" async action tests', () => {
       
       const credentials = 'credentials';
@@ -35,10 +41,6 @@ describe('testing React Redux actions', () =>{
 
       const action = authLogin(credentials, checked);
 
-      const dispatch = jest.fn();
-      const getState = jest.fn();
-
-      const services = {};
       const router = {
         navigate: jest.fn(),
         state: { location: { state: { from: { pathname: redirectURL } } } }
@@ -65,8 +67,24 @@ describe('testing React Redux actions', () =>{
     
     describe('"getApiAdverts" async action tests', () =>{
       
-    });
+      const action = getApiAdverts();
 
-  });
+      it('Should follow the flow upon successfully retrieving ads', async () => {
+        const adverts = 'adverts'
+        services.getAdverts = jest.fn().mockResolvedValue(adverts);
+        await action(dispatch, getState, {api: {services}});
+        expect(dispatch).toHaveBeenNthCalledWith(1, addAdvertsRequire());
+        expect(services.getAdverts).toHaveBeenCalled();
+        expect(dispatch).toHaveBeenNthCalledWith(2, addAdvertsSuccess(adverts));
+      });
+      it('Should follow the flow upon failure to retrieve ads', async () => {
+        const error = new Error('Catastrophic error')
+        services.getAdverts = jest.fn().mockRejectedValue(error);
+        await action(dispatch, getState, {api: {services}});
+        expect(dispatch).toHaveBeenNthCalledWith(1, addAdvertsRequire());
+        expect(services.getAdverts).toHaveBeenCalled();
+        expect(dispatch).toHaveBeenNthCalledWith(2, addAdvertsFailure(error));
+      });
+    });
   });
 });

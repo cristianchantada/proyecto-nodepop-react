@@ -46,7 +46,7 @@ export const logoutThunk = () => (dispatch, _getState, {api: {client}, router}) 
 
 export const getApiAdverts = () => async (dispatch, _getState, {api: {services}}) => {
 
-  dispatch(addAdvertsRequire);
+  dispatch(addAdvertsRequire());
   try {
     const adverts = await services.getAdverts();
     dispatch(addAdvertsSuccess(adverts));
@@ -62,7 +62,7 @@ export const addAdvertsRequire = () => ({
 export const addAdvertsSuccess = adverts => ({
   type: ADD_ADVERTS_SUCCESS,
   payload: adverts
-})
+});
 
 export const addAdvertsFailure = error => ({
   type: ADD_ADVERTS_FAILURE,
