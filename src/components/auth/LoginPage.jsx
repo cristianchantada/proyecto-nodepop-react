@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Layout from "../common/Layout";
 import "../../styles/LoginPage.css";
 
+//TODO hacer los login failure, request, etc
 
 function LoginPage() {
 
@@ -19,6 +20,7 @@ function LoginPage() {
     event.preventDefault();
   
     resetError();
+
     const credentials = {
       email: event.target.username.value,
       password: event.target.password.value

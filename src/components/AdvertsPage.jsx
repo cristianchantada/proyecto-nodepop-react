@@ -15,7 +15,6 @@ function AdvertsPage() {
 
   useEffect(() => {
       dispatch(getApiAdverts(adverts));
-      console.log('render');
   }, [dispatch]);
 
   const handleFilterSubmit = event => {

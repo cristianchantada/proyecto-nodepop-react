@@ -6,6 +6,8 @@ import logo from "../../assets/img/node.png";
 import "../../styles/Layout.css";
 import { useState} from "react";
 
+//TODO desaclopar la navegación aquí
+
 function Layout({children}) {
   const [byeBye, setByeBye] = useState(false);
   const isLogged = useSelector(getAuth);
