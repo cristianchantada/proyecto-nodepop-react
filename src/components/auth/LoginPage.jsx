@@ -8,9 +8,7 @@ import "../../styles/LoginPage.css";
 function LoginPage() {
 
   const dispatch = useDispatch();
-  const {isLoading, error} = useSelector(getUserInterface);
-
-/*   const [error, setError] = useState(null); */
+  const { error } = useSelector(getUserInterface);
 
   const resetError = () => {
     dispatch(userInterfaceResetError())

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage component test LoginPage snapshot 1`] = `
+<div>
+  <div
+    class="container layoutContainer"
+  >
+    <header>
+      <a
+        class="Link"
+        href="/"
+      >
+        <div
+          class="img-title-container"
+        >
+          <img
+            alt="Logo de Node Pop"
+            class="logoImg"
+            src="node.png"
+          />
+          <h1>
+            NodePop
+          </h1>
+        </div>
+      </a>
+      <nav />
+    </header>
+    <main>
+      <div
+        class="container login"
+      >
+        <form
+          id="loginForm"
+        >
+          <input
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+          <input
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+          <label
+            for=""
+          >
+            <input
+              name="checkbox"
+              type="checkbox"
+            />
+            ¿Desea guardar la contraseña?
+          </label>
+          <button
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p>
+        © Cristian Copyright 2023
+      </p>
+    </footer>
+  </div>
+</div>
+`;
