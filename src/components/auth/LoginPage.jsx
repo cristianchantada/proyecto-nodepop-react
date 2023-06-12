@@ -17,11 +17,11 @@ function LoginPage() {
 		resetError();
 
 		const credentials = {
-			email: event.target.username.value,
-			password: event.target.password.value
+			email: event.target.elements.username.value,
+			password: event.target.elements.password.value
 		};
 
-		const checked = event.target.checkbox.checked;
+		const checked = event.target.elements.checkbox.checked;
 		dispatch(authLogin(credentials, checked));
 	};
 
