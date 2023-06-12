@@ -86,7 +86,9 @@ function NewAdvertPage() {
 								htmlFor={tag}
 								id={tag}
 								name={tag}
+								key={tag}
 							>
+								&nbsp;
 								<input
 									checked={advData.tags.lifestyle}
 									onChange={handleChange}
