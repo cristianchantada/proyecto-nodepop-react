@@ -1,194 +1,194 @@
 .title-container {
-  font-size: x-large;
-  display: flex;
-  height: 70px;
-  align-items: center;
-  justify-content: center;
+	font-size: x-large;
+	display: flex;
+	height: 70px;
+	align-items: center;
+	justify-content: center;
 }
 
 .advertsList {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px 20px;
-  align-items: center;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill);
-  border-radius: 20px;
-  background-color: #ffffff;
-  margin: auto 180px auto 180px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 20px 20px;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fill);
+	border-radius: 20px;
+	background-color: #ffffff;
+	margin: auto 180px auto 180px;
 }
 
 .advertItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #a0e6a1;
-  border-radius: 25px;
-  width: 400px;
-  height: 400px;
-  box-shadow: 2px 2px 4px grey;
-  margin: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #a0e6a1;
+	border-radius: 25px;
+	width: 400px;
+	height: 400px;
+	box-shadow: 2px 2px 4px grey;
+	margin: 20px;
 }
 
 .advertItem:hover {
-  background-color: #4caf50;
+	background-color: #4caf50;
 }
 
 .advertItem a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  text-decoration: none;
-  color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: black;
 }
 
 .advertItem p {
-  font-size: 16px;
-  font-weight: bold;
+	font-size: 16px;
+	font-weight: bold;
 }
 
 .advertItem h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
 }
 
 .advertItem h4 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 10px;
 }
 
 .advertItem p {
-  font-size: 16px;
-  margin-top: 10px;
+	font-size: 16px;
+	margin-top: 10px;
 }
 
 .advertItem img {
-  border-radius: 25px;
-  width: 90%;
-  height: 200px;
-  object-fit: cover;
-  margin-top: 10px;
+	border-radius: 25px;
+	width: 90%;
+	height: 200px;
+	object-fit: cover;
+	margin-top: 10px;
 }
 
 .advertItem ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 10px;
-  padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 10px;
+	padding: 0;
 }
 
 .advertItem li {
-  background-color: #f1f1f1;
-  border: 2px solid #222;
-  border-radius: 15px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 10px;
-  margin: 10px;
-  font-size: 16px;
-  list-style: none;
+	background-color: #f1f1f1;
+	border: 2px solid #222;
+	border-radius: 15px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	padding: 10px;
+	margin: 10px;
+	font-size: 16px;
+	list-style: none;
 }
 
 .filterContainer {
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 10px;
+	margin-top: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 10px;
 }
 
 .inputs-price-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: 20px;
 }
 
 .input-minPrize-container,
 .input-maxPrize-container {
-  padding: 15px;
+	padding: 15px;
 }
 
 .title-checks-container {
-  padding: 10px;
+	padding: 10px;
 }
 
 .title-checks-container p,
 .inputs-price-container p {
-  padding-top: 10px;
-  font-weight: 500;
-  font-size: 16px;
+	padding-top: 10px;
+	font-weight: 500;
+	font-size: 16px;
 }
 
 .inputs-operation-container {
-  padding: 15px;
+	padding: 15px;
 }
 
 .inputs-operation-container * {
-  padding: 5px;
+	padding: 5px;
 }
 
 .button-filter-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .nonAdvertsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 65vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 65vh;
 }
 
 .nonAdvertsContainer * {
-  margin: 18px;
+	margin: 18px;
 }
 
 .title-container > h2 {
-  margin-top: 25px;
+	margin-top: 25px;
 }
 
 .mismatchContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 65vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 65vh;
 }
 
 .mismatchContainer * {
-  margin: 18px;
+	margin: 18px;
 }
 
 .input-minPrize-container input[type="text"],
 .input-maxPrize-container input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  font-size: 16px;
-  margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	font-size: 16px;
+	margin-top: 10px;
 }
 
 .input-minPrize-container label,
 .input-maxPrize-container label {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }

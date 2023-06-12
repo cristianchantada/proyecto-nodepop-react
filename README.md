@@ -1,25 +1,5 @@
-# Práctica de Cristian Varela Casas, módulo de Fundamentos de React, Bootcamp Web XIV de KeepCoding.
+# Práctica de Cristian Varela Casas, módulo de Fundamentos de React + módulo de React avnazado, Bootcamp Web XIV de KeepCoding.
 
-## 2a corrección de la práctica; notas para David:
-
-- El orden de los siguientes puntos informativos, a cerca de las modificaciones efectuadas en ésta segunda corrección, siguen el mismo orden de los 8 puntos de la correción.
-
-1. Se consigue que en el repositorio el nombre de **Button.jsx** no figure como **button.jsx**. ('/src/components/common/Button.jsx'). En local lo tenía bien, pero en el repo no y no me di cuenta: git al trackear un fichero, si no le cambias el nombre, sino solo una mayúscula o minúscula, en el repositorio mantiene el nombre original. Esto ocurrió porque al iniciar el proyecto puse button.jsx, hice commit, y al día siguiente preferí el nombre de los ficheros de componentes en mayúscula. En VSC el cambio fue automático, sin embargo Git no lo considero como modificación.
-
-2. Se utiliza un **error en el interceptor de axios** para que, en la página de login, se le de feedback al usuario en el caso de que haya cometido algún error. En LoginPage.jsx ha sido **necesario crear un estado de error** y he decidido cambiar de promesas a async/await en la petición de los datos al servidor. Se ha realizado el estilo CSS con Chat GPT.
-
-3. Se utiliza el hook useLocation() en el componente de autenticación (AuthComponent.jsx) junto con la propiedad 'state' en su Navigate para pasárselo a LoginPage y **redirigir a la página solicitada por el usuario cuando haga el login**.
-
-4. **Se crea un contexto** para manejar la autenticación: todas las propiedades que han necesitado ser pasadas han salido de app.js y han llegado a Layout.jsx, LoginPage.jsx y AuthComponent.jsx.
-
-5. **Se modifica el sistema de filtrado**: se suprime el estado 'auxiliar' por ser redundante e innecesario; ya no se realiza una nueva petición al realizar el filtrado (queda todo en el frontend). No obstante la intencionalidad mía fue que con cada nuevo filtrado a partir del primero, fuera un nuevo filtrado desde cero. Me parecía que si una persona realiza un filtrado y quiere cambiar sus valores a continuación, el filtrado no se puede realizar con respecto a los anuncios que 'quedan' sin descartar, sino respecto a todos (p.ej. si primero filtra por solo compra, y el segundo filtrado solo por venta, el resultado final será ningún anuncio, cuando en realidad yo considero que el cliente en realidad quiere todos los **en venta**). Sí que leí en el enunciado de la práctica lo de _"a medida que vayamos eligiendo filtros se reduzca el número de anuncios mostrados"_, no obstante me parecía de este modo más complejo y pensé que haciéndolo voluntariamente supondría un plus al requisito primordial.
-
-6. Los **tags** pasan de estar harcodeados a **traerlos de la API directamente**.
-
-7. Se inserta en el **.then() la redirección a '/'** para que para que no se lleve a cabo antes de resolver el borrado
-   ('/src/components/AdvertsPage.jsx').
-
-8. **Se elimina dos Componentes React innecesarios**: Button.jsx y Confirm.jsx (se sustituyen por elementos button y sus onClick's respectivos).
 
 # Getting Started with Create React App
 

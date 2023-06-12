@@ -1,46 +1,46 @@
 header {
-  padding: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgb(45, 131, 206);
-  height: 175px;
+	padding: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(45, 131, 206);
+	height: 175px;
 }
 
 .Link {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .img-title-container {
-  display: flex;
+	display: flex;
 }
 
 .logoImg {
-  height: 100px;
+	height: 100px;
 }
 
 h1 {
-  padding: 20px;
-  font-size: 3rem;
+	padding: 20px;
+	font-size: 3rem;
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
 }
 
 footer {
-  flex-shrink: 0;
-  background-color: rgb(45, 131, 206);
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: x-large;
+	flex-shrink: 0;
+	background-color: rgb(45, 131, 206);
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: x-large;
 }
 
 .active {
-  color: red;
+	color: red;
 }

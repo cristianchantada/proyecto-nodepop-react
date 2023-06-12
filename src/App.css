@@ -1,42 +1,42 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
 }
 
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 img {
-  height: 200px;
+	height: 200px;
 }
 
 a:link {
-  color: #000000;
-  text-decoration: none;
+	color: #000000;
+	text-decoration: none;
 }
 
 a:visited {
-  color: #000000;
+	color: #000000;
 }
 
 * button {
-  background-color: #4caf50;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  padding: 12px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 14px 12px;
-  cursor: pointer;
-  transition-duration: 0.3s;
+	background-color: #4caf50;
+	border: none;
+	border-radius: 20px;
+	color: white;
+	padding: 12px 24px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 14px 12px;
+	cursor: pointer;
+	transition-duration: 0.3s;
 }
 
 * button:hover {
-  background-color: #3e8e41;
+	background-color: #3e8e41;
 }
